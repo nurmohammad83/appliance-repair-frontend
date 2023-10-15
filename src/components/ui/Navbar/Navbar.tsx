@@ -33,7 +33,7 @@ const Navbar = ({
 
   return (
     <Layout className="layout">
-     <Header className="flex sticky opacity-100 top-0 z-50 justify-between shadow-lg items-center bg-gray-100">
+     <Header className="flex sticky top-0 z-50 justify-between shadow-lg items-center bg-gray-100">
         {hasSider && (
           <Button
             type="primary"
@@ -64,8 +64,8 @@ const Navbar = ({
          
         >
           {items?.map((item) => (
-            <Menu.Item className="bg-none hover:text-primary font-bold leading-3 p-0 mx-3" key={item.href}>
-              <Link className="m-0 p-0" href={item.href}>{item.label}</Link>
+            <Menu.Item className="bg-none  text-black font-medium leading-6 p-0 mx-4" key={item.href}>
+              <Link className="m-0 p-0 listing" href={item.href}>{item.label}</Link>
             </Menu.Item>
           ))}
 

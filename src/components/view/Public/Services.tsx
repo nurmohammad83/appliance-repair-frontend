@@ -12,9 +12,9 @@ const Services = () => {
         </h1>
         <Button
           size="large"
-          className="text-primary shadow-gray-400 shadow-sm text-sm font-semibold  flex justify-center border-none items-center"
+          className="text-primary group shadow-gray-400 shadow-sm text-sm font-semibold  flex justify-center border-none items-center"
         >
-          View All <ArrowRightOutlined />
+          View All <ArrowRightOutlined className="transition-all delay-50 duration-500 group-hover:translate-x-2"/>
         </Button>
       </div>
       <hr className="sm:w-36 w-24  h-1 bg-primary my-2" />
@@ -26,7 +26,7 @@ const Services = () => {
         gutter={[24, 24]}
       >
         <Col xs={24} sm={24} md={12} lg={12} xl={8}>
-          <Link className="group" href="/">
+          <Link className="group rounded-md" href="/">
             <Image
               src="/oven.jpeg"
               alt="oben"
@@ -40,7 +40,7 @@ const Services = () => {
           </Link>
         </Col>
         <Col xs={24} sm={24} md={12} lg={12} xl={8}>
-          <Link className="group" href="/">
+          <Link className="group rounded-md" href="/">
             <Image
               src="/oven.jpeg"
               alt="oben"

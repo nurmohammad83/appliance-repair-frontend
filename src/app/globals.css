@@ -11,14 +11,22 @@
   box-shadow: none;
   box-sizing: border-box;
 }
-.ant-steps {
-  padding: 20px 0;
-}
-.ant-steps-item{
-   padding: 10px 0;
+
+.listing {
+  list-style: none;
+ display: block;
 }
 
-.ant-steps .ant-steps-item-process .ant-steps-item-icon {
-  background: rgb(224, 34, 114);
-  border-color: rgb(224, 34, 114);
+.listing::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: rgb(224, 34, 114);
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+
+.listing:hover::after {
+  width: 100%;
 }
