@@ -1,40 +1,40 @@
 "use client";
-import { MenuOutlined } from "@ant-design/icons";
-import { Button, Drawer, Layout, Menu, Typography } from "antd";
+import React, { useEffect, useState } from "react";
 
+import { Drawer, Button, Menu, Layout } from "antd";
+import {
+  MenuOutlined,
+} from "@ant-design/icons";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 
-const { Header, Content } = Layout;
-const { Title } = Typography;
+const { Header } = Layout;
 
-const Navbar = ({
-  items,
-  hasSider,
-  session,
-}: {
-  items: { key: string; label: string; href: string }[];
-  hasSider?: boolean;
-  session?: boolean;
-}) => {
-  const pathname = usePathname();
-  const router = useRouter();
+function Navbar({
+    items,
+    hasSider,
+    session,
+  }: {
+    items: { key: string; label: string; href: string }[];
+    hasSider?: boolean;
+    session?: boolean;
+  }) {
+    const pathname = usePathname();
+      const router = useRouter();
+
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
     setOpen(true);
   };
 
+  
   const onClose = () => {
     setOpen(false);
   };
 
-
-
   return (
-    <Layout className="layout">
-     <Header className="flex sticky top-0 z-50 justify-between shadow-lg items-center bg-gray-100">
-        {hasSider && (
+    <Header className="flex sticky opacity-100 top-0 z-50 justify-between shadow-lg items-center bg-gray-100">
+       {hasSider && (
           <Button
             type="primary"
             className="lg:hidden"
@@ -45,19 +45,15 @@ const Navbar = ({
             <MenuOutlined />
           </Button>
         )}
-        <div>
-          <Link href="/">
-            <Title
-              className={`m-0 text-primary text-2xl ${
-                hasSider && "text-center lg:text-left"
-              }`}
-            >
-             ProTechFixers
-            </Title>
-          </Link>
-        </div>
-        <Menu
-          className="lg:flex bg-transparent justify-center items-center text-black hidden"
+      <div className="brand-logo">
+        <Link href="/">
+          <h2 className="text-black bg-gradient-to-r from-teal-700 via-blue-500 text-transparent bg-clip-text to-green-400 uppercase cursor-pointer">
+          ProTechFixers
+          </h2>
+        </Link>
+      </div>
+      <Menu
+          className="md:flex bg-transparent justify-center items-center text-black hidden"
           disabledOverflow
           theme="dark"
           mode="horizontal"
@@ -90,12 +86,17 @@ const Navbar = ({
             </Button>
           )}
         </Menu>
-
-        <Button type="primary" className="lg:hidden" onClick={showDrawer}>
+ 
+      <div className=" block md:hidden">
+        <Button
+          className=" block md:hidden"
+          type="primary"
+          onClick={showDrawer}
+        >
           <MenuOutlined />
         </Button>
-        <Drawer title="Menu" placement="right" onClose={onClose} visible={open}>
-          <Menu
+        <Drawer placement="right" title="Menubar" onClose={onClose} open={open}>
+        <Menu
             theme="light"
             mode="vertical"
             selectedKeys={[pathname]}
@@ -108,9 +109,10 @@ const Navbar = ({
             ))}
           </Menu>
         </Drawer>
-      </Header>
-    </Layout>
+      </div>
+    </Header>
   );
-};
+}
 
 export default Navbar;
+
