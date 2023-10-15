@@ -47,7 +47,7 @@ function Navbar({
         )}
       <div className="brand-logo">
         <Link href="/">
-          <h2 className="text-black bg-gradient-to-r from-teal-700 via-blue-500 text-transparent bg-clip-text to-green-400 uppercase cursor-pointer">
+          <h2 className="text-black uppercase cursor-pointer">
           ProTechFixers
           </h2>
         </Link>
@@ -61,7 +61,7 @@ function Navbar({
         >
           {items?.map((item) => (
             <Menu.Item className="bg-none  text-black font-medium leading-6 p-0 mx-4" key={item.href}>
-              <Link className="m-0 p-0 listing" href={item.href}>{item.label}</Link>
+              <Link className="m-0 p-0 bg-none listing" href={item.href}>{item.label}</Link>
             </Menu.Item>
           ))}
 

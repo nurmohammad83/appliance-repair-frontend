@@ -16,7 +16,7 @@ const config: Config = {
       colors: {
         primary: "rgb(224, 34, 114)",
         secondary: "rgba(0,0,0,.8)",
-        dimBlack: "#383a3c",
+        dimPrimary: "rgb(255, 66, 144)",
         regular: "#495057",
       },
       fontFamily: {
