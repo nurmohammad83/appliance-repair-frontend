@@ -19,7 +19,7 @@ const Hero = () => {
     console.log(`${value}${link}`);
   };
   return (
-    <div className="">
+    <div>
       <div
         className="relative bg-cover bg-center h-[500px]"
         style={{

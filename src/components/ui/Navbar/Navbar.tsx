@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-
+import logo from '../../../assets/log.png'
 import { Drawer, Button, Menu, Layout } from "antd";
 import {
   MenuOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 
 const { Header } = Layout;
 
@@ -45,11 +46,11 @@ function Navbar({
             <MenuOutlined />
           </Button>
         )}
-      <div className="brand-logo">
+      <div className="flex items-center">
         <Link href="/">
-          <h2 className="text-black uppercase cursor-pointer">
-          ProTechFixers
-          </h2>
+          
+          <h3 className="font-roboto text-2xl text-primary">PROTECHFIXERS</h3>
+         
         </Link>
       </div>
       <Menu
