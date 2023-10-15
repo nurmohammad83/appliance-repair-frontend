@@ -11,7 +11,9 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.2",
     "@reduxjs/toolkit": "^1.9.7",
+    "@types/jsonwebtoken": "^9.0.3",
     "antd": "^5.10.0",
+    "jsonwebtoken": "^9.0.2",
     "next": "13.5.4",
     "next-auth": "^4.23.2",
     "react": "^18",

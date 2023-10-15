@@ -1,9 +1,7 @@
 'use client'
-
-
+import { getErrorMessageByPropertyName } from "@/utils/validation-schema";
 import { Input } from "antd";
 import { useFormContext, Controller } from "react-hook-form";
-import { getErrorMessageByPropertyName } from "../../../../utils/validation-schema";
 
 interface IInput {
   name: string;
