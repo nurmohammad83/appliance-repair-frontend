@@ -10,7 +10,7 @@ const PublicHeader = () => {
         {
           key: '2',
           label: "Services",
-          href: "/available-services",
+          href: "/all-services",
         },
         {
           key: '3',
