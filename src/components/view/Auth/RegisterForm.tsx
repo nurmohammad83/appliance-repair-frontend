@@ -1,7 +1,6 @@
 "use client";
 
 import { Button, message } from "antd";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Form from "../Form/Form";
 import FormInput from "../Form/FormInput";
@@ -9,6 +8,7 @@ import Link from "next/link";
 import { createUser } from "@/services/users/createUser";
 import { loginUser } from "@/helpers/logInUser";
 import { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const RegisterForm = () => {
   const [submitError, setSubmitError] = useState();
@@ -29,7 +29,7 @@ const RegisterForm = () => {
           setSubmitError(logInRes.error || "");
         } else {
           router.push("/");
-          message.success("User Create in successfully")
+          message.success("User Create in successfully");
         }
       }
     } catch (error) {
@@ -45,7 +45,7 @@ const RegisterForm = () => {
         </div>
         <div className="w-96">
           <div>
-            <Form submitHandler={onSubmit}>
+            <Form submitHandler={onSubmit} resolver={yupResolver}>
               <div>
                 <FormInput
                   name="fullName"
