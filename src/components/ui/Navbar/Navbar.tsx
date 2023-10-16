@@ -1,20 +1,22 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import logo from "../../../assets/log.png";
-import { Drawer, Button, Menu, Layout } from "antd";
+import { Drawer, Button, Menu, Layout, Space, Dropdown, Avatar, MenuProps } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import Image from "next/image";
 import { signOut } from "next-auth/react";
 const { Header } = Layout;
 
+
+
 function Navbar({
   items,
+  allItems,
   hasSider,
   session,
 }: {
-  items: { key: string; label: string; href: string }[];
+  items?:any;
+  allItems: { key: string; label: string; href: string }[];
   hasSider?: boolean;
   session?: boolean;
 }) {
@@ -24,10 +26,10 @@ function Navbar({
   const showDrawer = () => {
     setOpen(true);
   };
-
   const onClose = () => {
     setOpen(false);
   };
+
 
   return (
     <Header className="flex sticky opacity-100 top-0 z-50 justify-between shadow-lg items-center bg-gray-100">
@@ -43,7 +45,7 @@ function Navbar({
         theme="dark"
         mode="horizontal"
       >
-        {items?.map((item) => (
+        {allItems?.map((item) => (
           <Menu.Item
             className="bg-none  text-black font-medium leading-6 p-0 mx-4"
             key={item.href}
@@ -55,14 +57,17 @@ function Navbar({
         ))}
 
         {session ? (
-          <Button
-            type="primary"
-            onClick={() => {
-              signOut();
-            }}
-          >
-            Sign Out
-          </Button>
+          
+            <div style={{display:'flex' , justifyContent:'center', gap:"5px"}}>
+            <Dropdown menu={ {items} }>
+              <a>
+                <Space wrap size={16}>
+                  <Avatar shape="circle" size="large" />
+                </Space>
+              </a>
+            </Dropdown>
+            </div>
+         
         ) : (
           <Button
             size="large"
@@ -91,7 +96,7 @@ function Navbar({
             selectedKeys={[pathname]}
             style={{ borderRight: 0 }}
           >
-            {items?.map((item) => (
+            {allItems?.map((item) => (
               <Menu.Item key={item.href}>
                 <Link href={item.href}>{item.label}</Link>
               </Menu.Item>

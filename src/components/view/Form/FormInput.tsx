@@ -49,7 +49,7 @@ const FormInput = ({
       />
       )}
     />
-    <small style={{color:'red'}}>
+    <small className="text-sm font-roboto text-red-500">
       {errorMessage}
     </small>
     </>

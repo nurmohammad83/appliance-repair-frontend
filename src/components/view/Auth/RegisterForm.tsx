@@ -9,6 +9,7 @@ import { createUser } from "@/services/users/createUser";
 import { loginUser } from "@/helpers/logInUser";
 import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { createUserSchema } from "@/schemas/userCreateSchema";
 
 const RegisterForm = () => {
   const [submitError, setSubmitError] = useState();
@@ -38,14 +39,14 @@ const RegisterForm = () => {
   };
   return (
     <div>
-      <div className="flex font-poppins justify-center mt-8 items-center flex-col">
+      <div className="flex font-poppins justify-center my-8 items-center flex-col">
         <div className="text-center py-5 sm:py-10">
           <span className="text-primary font-bold">PROTECHFIXER</span>
           <h2 className="text-xl font-roboto">Create Your Account</h2>
         </div>
         <div className="w-96">
           <div>
-            <Form submitHandler={onSubmit} resolver={yupResolver}>
+            <Form submitHandler={onSubmit} resolver={yupResolver(createUserSchema)}>
               <div>
                 <FormInput
                   name="fullName"
@@ -55,7 +56,7 @@ const RegisterForm = () => {
                   label="Full Name"
                 />
               </div>
-              <div className="my-5">
+              <div className="my-4">
                 <FormInput
                   name="email"
                   type="email"
@@ -64,7 +65,7 @@ const RegisterForm = () => {
                   label="Email Address"
                 />
               </div>
-              <div className="my-5">
+              <div className="my-4">
                 <FormInput
                   name="password"
                   type="password"
@@ -73,7 +74,7 @@ const RegisterForm = () => {
                   label=" Password"
                 />
               </div>
-              <div className="my-5">
+              <div className="my-4">
                 <FormInput
                   name="contactNo"
                   type="text"
@@ -89,7 +90,7 @@ const RegisterForm = () => {
                 className="bg-primary font-bold"
                 htmlType="submit"
               >
-                Login
+                Sign Up
               </Button>
             </Form>
             <p className="text-red-500 text-sm">{submitError}</p>
