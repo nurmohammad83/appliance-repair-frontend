@@ -1,11 +1,11 @@
-import ServiceSidebar from "@/components/view/Public/ServicesSidebar"
 import { ReactNode } from "react"
+import Sidebar from "@/components/ui/Sidebar/Sidebar"
 
 const ServicesPage = ({children}:{children:ReactNode}) => {
   return (
-    <div>
-        <ServiceSidebar>{children}</ServiceSidebar>
-    </div>
+    <>
+        <Sidebar>{children}</Sidebar>
+    </>
   )
 }
 export default ServicesPage
