@@ -2,17 +2,19 @@ import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// This function can be marked `async` if using `await` inside
 const hybridRoutes = ["/", "/login", "/register"];
-const patientAccesibleRoutes = ["/dashboard", "my-profile", "my-appointments"];
+const logedInUserAccessibleRoutes = [
+  "/dashboard",
+  "/my-profile",
+  "/my-bookings",
+];
 const rolesRedirect: Record<string, unknown> = {
-  doctor: "http://localhost:3000/doctors/dashboard",
-  patient: "http://localhost:3000/dashboard",
-  admin: "http://localhost:3000/admins/dashboard",
+  user: "http://localhost:3000/dashboard",
+  admin: "http://localhost:3000/admin/dashboard",
+  super_admin: "http://localhost:3000/super-admin/dashboard",
 };
 export async function middleware(request: NextRequest) {
   const token = await getToken({ req: request });
-  // console.log(token, "token middleware")
   const { pathname } = request.nextUrl;
   if (!token) {
     if (hybridRoutes.includes(pathname)) {
@@ -25,8 +27,8 @@ export async function middleware(request: NextRequest) {
   // console.log(role, "role middleware")
   if (
     (role === "admin" && pathname.startsWith("/admins")) ||
-    (role === "doctor" && pathname.startsWith("/doctors")) ||
-    (role === "patient" && patientAccesibleRoutes.includes(pathname))
+    (role === "super_admin" && pathname.startsWith("/super-admin")) ||
+    (role === "user" && logedInUserAccessibleRoutes.includes(pathname))
   ) {
     // console.log("next")
     return NextResponse.next();
@@ -46,29 +48,13 @@ export const config = {
     "/",
     "/login",
     "/register",
-    //patient routes
+    //user routes
     "/dashboard",
     "/my-profile",
-    "/my-appointments",
-    //doctor routes
-    "/doctor/:page*",
+    "/my-bookings",
     //admin routes
-    "/admins/:page*",
+    "/admin/:page*",
+    //super_adin routes
+    "/super-admin/:page*",
   ],
 };
-
-/**
- * next auth amader ekta next-auth.session-token provide kore -
- * amader backend amader arekta accessToken
- * tahole project er modhe 2 ta token parallel
- * next auth er token ta amadedr login ta dhore rakhe
- * next auth behaviour hocche eta apni jokhoni reload marben next-auth token ta refresh kore
- * amader backend er accessToken ta ache sheta kintu refresh hocche na
- * tar mane auth token reload marle refresh holeo, accesstoken refresh. ebong accessToken amadxer login persist kortese
- * tar mane emon ekta time ashbe jokhon amader next auth er token refresh hoye valid hoye jabe but accessToken expire hoye jabe
- * tokhon amader site loggedIn thakbe but data ashbe na
- *
- * so amader strategy hobe:
- * 1. amra check korbo accessToken expire hoye geche kina
- * 2. jodi hoye jay tahole notun kore refresh token generate kore amader access token ta update korte hobe jaate user logged in thakleo data jate ashte pare
- */
