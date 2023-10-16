@@ -1,26 +1,31 @@
 'use client'
 
-import { Button, Col, Row, message } from 'antd';
+import { Button} from 'antd';
 import loginImage from '../../../assets/loginImg.png'
 import Image from 'next/image';
-
-import {  SubmitHandler } from "react-hook-form";
-
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Form from '../Form/Form';
 import FormInput from '../Form/FormInput';
 
-interface FormValue {
-   id:string;
-   password:string
-}
-
-
-const LoginPage = () => {
+const LoginForm = () => {
 const router = useRouter()
-  const onSubmit:SubmitHandler<FormValue>=async (data:any)=>{
-    console.log(data)
-  }
+
+const onSubmit =async (values: any) => {
+  console.log(values)
+const result = await signIn('pro-tech-fixer',{
+  email:values.email,
+  password:values.password,
+  callbackUrl:'/'
+}
+)
+
+console.log(result,"result")
+
+if(result?.ok && !result.error){
+router.push('/')
+}
+};
   return (
     <div>
         <div className='flex font-poppins justify-center mt-24 items-center flex-col'>
@@ -48,4 +53,4 @@ const router = useRouter()
     </div>
   )
 }
-export default LoginPage
+export default LoginForm

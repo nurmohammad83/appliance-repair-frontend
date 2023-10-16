@@ -8,7 +8,7 @@ import {
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-
+import { signOut } from 'next-auth/react';
 const { Header } = Layout;
 
 function Navbar({
@@ -69,9 +69,9 @@ function Navbar({
           {session ? (
             <Button
               type="primary"
-            //   onClick={() => {
-            //     signOut();
-            //   }}
+              onClick={() => {
+                signOut();
+              }}
             >
               Sign Out
             </Button>

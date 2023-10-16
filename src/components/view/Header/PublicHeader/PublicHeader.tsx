@@ -1,6 +1,9 @@
+import { authOptions } from "@/app/lib/AuthOptions";
 import Navbar from "@/components/ui/Navbar/Navbar";
+import { getServerSession } from "next-auth";
 
-const PublicHeader = () => {
+const PublicHeader =async () => {
+  const session =await getServerSession(authOptions)
     const items = [
         {
           key: '1',
@@ -24,7 +27,7 @@ const PublicHeader = () => {
         },
       ];
   return (
-    <Navbar items={items}/>
+    <Navbar session={session ? true : false} items={items}/>
   )
 }
 export default PublicHeader
