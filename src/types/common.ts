@@ -20,13 +20,6 @@ export interface IGenericErrorMessage {
   message: string;
 }
 
-export type IUser = {
-  firstName: string;
-  email: string;
-  password: string;
-  contactNo: string;
-};
-
 export type ILogin = {
   email: string;
   password: string;
