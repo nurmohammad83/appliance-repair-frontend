@@ -13,6 +13,7 @@ export const createUser = async (data: any) => {
     cache: "no-cache",
   });
   const { data: userData } = await res.json();
+  console.log(userData);
   revalidateTag("all-users");
-  redirect(`/all-services`);
+  redirect(`/`);
 };
