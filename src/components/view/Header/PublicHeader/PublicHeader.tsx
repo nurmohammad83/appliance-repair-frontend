@@ -20,14 +20,31 @@ const PublicHeader =async () => {
           label: "About",
           href: "/about-us",
         },
+      ];
+      const logedInItem =[
         {
-          key: '4',
-          label: "Contact",
-          href: "/contact-us",
+          key: '1',
+          label: "Home",
+          href: "/",
+        },
+        {
+          key: '2',
+          label: "Services",
+          href: "/all-services",
+        },
+        {
+          key: '3',
+          label: "About",
+          href: "/about-us",
+        },
+        {
+          key: '3',
+          label: "My Profile",
+          href: "/my-profile",
         },
       ];
   return (
-    <Navbar session={session ? true : false} items={items}/>
+    <Navbar session={session ? true : false} items={!!session?logedInItem : items}/>
   )
 }
 export default PublicHeader

@@ -37,7 +37,7 @@ router.push('/')
       <div>
         <Form submitHandler={onSubmit}>
          <div>
-         <FormInput name='id' type='email' placeholder='Enter your email' size='large' label='Email Address' />
+         <FormInput name='email' type='email' placeholder='Enter your email' size='large' label='Email Address' />
          </div>
          <div className='my-5'>
          <FormInput name='password' type='password' placeholder='Enter your password' size='large' label=' Password' />

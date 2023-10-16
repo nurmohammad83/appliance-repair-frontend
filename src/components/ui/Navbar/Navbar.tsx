@@ -8,7 +8,7 @@ import {
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-import { signOut } from 'next-auth/react';
+import { signOut } from "next-auth/react";
 const { Header } = Layout;
 
 function Navbar({
@@ -22,7 +22,7 @@ function Navbar({
   }) {
     const pathname = usePathname();
       const router = useRouter();
-
+console.log(session)
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
     setOpen(true);

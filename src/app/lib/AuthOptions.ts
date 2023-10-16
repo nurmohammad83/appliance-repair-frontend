@@ -1,3 +1,5 @@
+import { jwtHelpers } from "@/helpers/jwtHelpers";
+import { getNewAccessToken } from "@/services/getNewAccessToken";
 import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -25,10 +27,15 @@ export const authOptions: AuthOptions = {
             },
           });
           const { data } = await res.json();
-          console.log(data);
+          const verifyToken: any = jwtHelpers.verifyToken(
+            data?.accessToken,
+            process.env.JWT_SECRET!
+          );
+
           if (res.ok && data) {
             return {
               ...data,
+              ...verifyToken,
             };
           }
         } catch (error: any) {
@@ -40,9 +47,28 @@ export const authOptions: AuthOptions = {
   ],
   callbacks: {
     async jwt({ token, user }) {
+      // console.log(token, "token auth option");
+      // console.log(user, "user auth option");
       return {
         ...token,
         ...user,
+      };
+    },
+    async session({ session, token }: { session: any; token: any }) {
+      console.log(session, "session auth option");
+      console.log(token, "token auth option inside session");
+      const verifiedToken = jwtHelpers.verifyToken(
+        token?.accessToken,
+        process.env.JWT_SECRET!
+      );
+      if (!verifiedToken) {
+        console.log("token expired so new token generated");
+        const { data } = await getNewAccessToken(token?.accessToken);
+        token.accessToken = data?.accessToken;
+      }
+      return {
+        ...session,
+        ...token,
       };
     },
   },

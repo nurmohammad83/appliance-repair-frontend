@@ -2,7 +2,7 @@ import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const hybridRoutes = ["/", "/login", "/register"];
+const hybridRoutes = ["/login", "/register"];
 const logedInUserAccessibleRoutes = [
   "/dashboard",
   "/my-profile",
@@ -24,13 +24,11 @@ export async function middleware(request: NextRequest) {
   }
 
   const role = token?.role as string;
-  // console.log(role, "role middleware")
   if (
-    (role === "admin" && pathname.startsWith("/admins")) ||
+    (role === "admin" && pathname.startsWith("/admin")) ||
     (role === "super_admin" && pathname.startsWith("/super-admin")) ||
     (role === "user" && logedInUserAccessibleRoutes.includes(pathname))
   ) {
-    // console.log("next")
     return NextResponse.next();
   }
 
@@ -45,7 +43,6 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     //hybrid routes
-    "/",
     "/login",
     "/register",
     //user routes
@@ -54,7 +51,7 @@ export const config = {
     "/my-bookings",
     //admin routes
     "/admin/:page*",
-    //super_adin routes
+    //super_admin routes
     "/super-admin/:page*",
   ],
 };
