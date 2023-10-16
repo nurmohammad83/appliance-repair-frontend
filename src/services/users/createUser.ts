@@ -1,5 +1,6 @@
 "use server";
 
+import { loginUser } from "@/helpers/logInUser";
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -13,7 +14,7 @@ export const createUser = async (data: any) => {
     cache: "no-cache",
   });
   const { data: userData } = await res.json();
-  console.log(userData);
+  return userData;
   revalidateTag("all-users");
   redirect(`/`);
 };

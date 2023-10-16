@@ -1,6 +1,6 @@
 'use client'
 
-import { Button} from 'antd';
+import { Button, message} from 'antd';
 import loginImage from '../../../assets/loginImg.png'
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
@@ -24,7 +24,8 @@ const result = await signIn('pro-tech-fixer',{
 console.log(result,"result")
 
 if(result?.ok && !result.error){
-router.push('/')
+  router.push('/')
+  message.success("User log in successfully")
 }
 };
   return (
@@ -49,7 +50,7 @@ router.push('/')
         </Form>
       </div>
     </div>
-    <span className='pt-3 text-primary'><span className='text-sm font-roboto text-black'>Not a member?</span> <Link href="/register">Sign Up Here</Link></span>
+    <div className='pt-3 text-primary'><span className='text-sm font-roboto text-black'>Not a member?</span> <span><Link className='text-primary text-sm' href="/register">Sign Up Here</Link></span></div>
   </div>
     </div>
   )
