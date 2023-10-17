@@ -28,10 +28,10 @@ const ServiceSidebar = ({service}:any) => {
             height: "100vh",
             position: "sticky",
             left: 0,
-            top: 0,
+            top: 100,
             bottom: 0,
           }}
-          className="bg-transparent hidden sm:block bg-white"
+          className="bg-none hidden sm:block pb-[400px] bg-white"
         >
           <Menu
             className="bg-transparent h-full"

@@ -1,12 +1,15 @@
 "use client";
-import {  Typography } from "antd";
+import {  Button, Modal, Typography } from "antd";
 import { StarFilled, CheckOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import BreadCrumb from "@/components/ui/BreadCrumb/BreadCrumb";
 import ServiceSidebar from "./ServicesSidebar";
+import { useState } from "react";
+import Schedule from "./Schedule";
 
 const { Title, Paragraph } = Typography;
 
 const ServiceDetails = ({service}:any) => {
+  const [open, setOpen] = useState(false);
   return (
     <div>
       <div
@@ -59,16 +62,62 @@ const ServiceDetails = ({service}:any) => {
             </div>
 
             <div className="md:w-1/2 text-end mt-10">
-              <button className="text-white group shadow-lg  border-none text-xl font-poppins rounded-lg hover:font-bold bg-dimPrimary cursor-pointer px-3 py-2 md:px-5 md:py-4">
+              <button onClick={() => setOpen(true)} className="text-white group shadow-lg  border-none text-xl font-poppins rounded-lg hover:font-bold bg-dimPrimary cursor-pointer px-3 py-2 md:px-5 md:py-4">
                 Order Now
                 <ArrowRightOutlined className="transition group-hover:translate-x-4 duration-700 ease-in-out ml-4 font-bold"/>
               </button>
+              <Modal
+        title="Modal 1000px width"
+        centered
+        open={open}
+        onOk={() => setOpen(false)}
+        onCancel={() => setOpen(false)}
+        width={1000}
+      >
+        <div className="flex justify-center items-center">
+          <h3 className="mr-4">Select Your Time Scheduled </h3>
+        <Schedule />
+        </div>
+        <div className="grid grid-cols-5 py-10 gap-5">
+        <Button className="text-primary border-primary">
+          10 - 20 AM
+        </Button>
+        <Button className="text-primary border-primary">
+          10 - 20 AM
+        </Button>
+        <Button className="text-primary border-primary">
+          10 - 20 AM
+        </Button>
+        <Button className="text-primary border-primary">
+          10 - 20 AM
+        </Button>
+        <Button className="text-primary border-primary">
+          10 - 20 AM
+        </Button>
+        <Button className="text-primary border-primary">
+          10 - 20 AM
+        </Button>
+        <Button className="text-primary border-primary">
+          10 - 20 AM
+        </Button>
+        <Button className="text-primary border-primary">
+          10 - 20 AM
+        </Button>
+        <Button className="text-primary border-primary">
+          10 - 20 AM
+        </Button>
+        <Button className="text-primary border-primary">
+          10 - 20 AM
+        </Button>
+        
+        </div>
+      </Modal>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="px-5 sm:px-14 py-12">
+      <div className="px-5 sm:px-14 mt-12">
         <ServiceSidebar service={service}/>
       </div>
     </div>

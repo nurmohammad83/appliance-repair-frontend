@@ -24,7 +24,7 @@ const AllServices = ({data}:any) => {
             height: "100vh",
             position: "sticky",
             left: 0,
-            top: 0,
+            top: 80,
             bottom: 0,
           }}
           className="bg-transparent bg-white"
@@ -41,7 +41,12 @@ const AllServices = ({data}:any) => {
           ))}
             </Menu>
         </Sider>
-        <Content style={{ overflow: 'auto' }} className="bg-white px-4">
+        <Content style={{
+            position: "sticky",
+            left: 0,
+            top: 80,
+            bottom: 0,
+          }} className="bg-white px-4">
         {
           data.map((item:any)=>(
             <section id={item.title} key={item.id}>
