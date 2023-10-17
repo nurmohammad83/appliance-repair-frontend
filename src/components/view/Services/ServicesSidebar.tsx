@@ -77,7 +77,7 @@ const ServiceSidebar = ({service}:any) => {
                 <div className="pt-1 pb-8">
                   <p className="mb-2 text-lg font-poppins font-bold">Select the Service</p>
                   <p className="text-secondary font-poppins text-sm">
-                  Pick the service you are looking for- from the website or the app.
+                  From the category, select the service you are looking for.
                   </p>
                 </div>
               </div>
@@ -109,7 +109,7 @@ const ServiceSidebar = ({service}:any) => {
                 <div className="pt-1 pb-8">
                   <p className="mb-2 text-lg font-poppins font-bold">Place Your Order & Relax</p>
                   <p className="text-secondary font-poppins text-sm">
-                  Review and place the order. Now just sit back and relax. We’ll assign the expert service provider’s schedule for you.
+                  Confirm your order by clicking ‘Place order’.
                   </p>
                 </div>
               </div>

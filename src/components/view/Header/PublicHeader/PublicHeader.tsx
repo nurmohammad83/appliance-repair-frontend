@@ -76,7 +76,7 @@ const PublicHeader =  ({session}:{session:boolean}) => {
     },
   ];
   return (
-    <Header className="flex sticky opacity-100 top-0 z-50 justify-between shadow-lg items-center bg-gray-100">
+    <Header className="flex sticky opacity-100 top-0 z-50 justify-between shadow-lg items-center bg-white">
       
     <div className="flex items-center">
       <Link href="/">

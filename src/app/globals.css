@@ -11,7 +11,9 @@
   box-shadow: none;
   box-sizing: border-box;
 }
-
+* {
+  scroll-behavior: smooth;
+}
 .listing {
   list-style: none;
  display: block;

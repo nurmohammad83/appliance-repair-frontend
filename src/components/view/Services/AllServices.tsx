@@ -8,13 +8,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const AllServices = ({data}:any) => {
-  const pathname = usePathname();
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
   return (
-    <div className="px-6 sm:px-12 relative md:px-24 font-poppins">
+    <div className="px-6 sm:px-12 relative min-h-screen block md:px-24 font-poppins">
       <div className="text-secondary font-bold text-3xl font-poppins  py-10">
         All Services
       </div>
@@ -42,10 +41,10 @@ const AllServices = ({data}:any) => {
           ))}
             </Menu>
         </Sider>
-        <Content style={{ overflow: 'auto' }} className=" bg-white px-4">
+        <Content style={{ overflow: 'auto' }} className="bg-white px-4">
         {
           data.map((item:any)=>(
-            <section id={item.title} className="mt-10" key={item.id}>
+            <section id={item.title} key={item.id}>
               <h2 className="text-xl sm:text-2xl font-bold font-roboto">{item.title}</h2>
               <hr className="h-1 bg-primary" />
                <Row

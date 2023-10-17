@@ -6,7 +6,7 @@ const ServicesPage =async () => {
   const data = await getAllCategories()
   const services = await getAllServices()
   return (
-    <div>
+    <div className="relative min-h-screen block scroll-smooth">
         <AllServices data={data} services={services}/>
     </div>
   )
