@@ -1,13 +1,15 @@
-import ServiceDetails from "@/components/view/Public/ServiceDetails";
+import ServiceDetails from "@/components/view/Services/ServiceDetails";
+import { getSingleService } from "@/services/our-service/get-single-service";
 
-const SingleService = ({
+const SingleService =async ({
     params: { id },
   }: {
     params: { id: string };
   }) => {
+    const service = await getSingleService(id)
   return (
     <div>
-        <ServiceDetails />
+        <ServiceDetails service={service}/>
     </div>
   )
 }

@@ -7,13 +7,16 @@ import Work from "@/components/view/Public/Work";
 import Testimonial from "@/components/view/Public/Testimonial";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./lib/AuthOptions";
+import { getAllCategories } from "@/services/category/get-all-category";
 const Home =async () => {
   const session = await getServerSession(authOptions);
+  const data = await getAllCategories()
+ 
   return (
     <>
       <PublicHeader session={session ? true : false}/>
       <Hero />
-      <Services />
+      <Services categorires={data}/>
       <TrendingService />
       <ChooseUs />
       <Work />

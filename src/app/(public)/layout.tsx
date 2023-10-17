@@ -1,10 +1,13 @@
 import PublicHeader from "@/components/view/Header/PublicHeader/PublicHeader"
+import { getServerSession } from "next-auth"
 import { ReactNode } from "react"
+import { authOptions } from "../lib/AuthOptions"
 
-const PublicLayout = ({children}:{children:ReactNode}) => {
+const PublicLayout =async ({children}:{children:ReactNode}) => {
+  const session =await getServerSession(authOptions)
   return (
     <div>
-      <PublicHeader />
+      <PublicHeader session={ session ? true : false}/>
       {children}
       </div>
   )

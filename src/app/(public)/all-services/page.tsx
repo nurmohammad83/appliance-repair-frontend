@@ -1,11 +1,14 @@
-import { ReactNode } from "react"
-import Sidebar from "@/components/ui/Sidebar/Sidebar"
+import { getAllCategories } from "@/services/category/get-all-category"
+import AllServices from "@/components/view/Services/AllServices"
+import { getAllServices } from "@/services/our-service/get-all-services"
 
-const ServicesPage = ({children}:{children:ReactNode}) => {
+const ServicesPage =async () => {
+  const data = await getAllCategories()
+  const services = await getAllServices()
   return (
-    <>
-        <Sidebar>{children}</Sidebar>
-    </>
+    <div>
+        <AllServices data={data} services={services}/>
+    </div>
   )
 }
 export default ServicesPage

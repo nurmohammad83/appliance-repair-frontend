@@ -1,8 +1,5 @@
 "use server";
-
-import { loginUser } from "@/helpers/logInUser";
 import { revalidateTag } from "next/cache";
-import { redirect } from "next/navigation";
 
 export const createUser = async (data: any) => {
   const res = await fetch(`http://localhost:4000/api/v1/users/create-user`, {

@@ -2,7 +2,7 @@
 
 import { IUser } from "@/types/user";
 
-export const getAllCategories = async (): Promise<IUser[]> => {
+export const getAllCategories = async (): Promise<any> => {
   const res = await fetch(`http://localhost:4000/api/v1/categories`, {
     headers: {
       "Content-Type": "application/json",

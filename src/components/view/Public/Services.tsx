@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import Link from "next/link";
 
-const Services = () => {
+const Services =async ({categorires}:any) => {
   return (
     <div className="px-10 sm:px-24 py-10 mt-10 sm:py-24">
       <div className="flex justify-between items-center">
@@ -25,48 +25,26 @@ const Services = () => {
         align={"middle"}
         gutter={[24, 24]}
       >
-        <Col xs={24} sm={24} md={12} lg={12} xl={8}>
-          <Link className="group rounded-md" href="/">
-            <Image
-              src="/oven.jpeg"
-              alt="oben"
-              layout="responsive"
-              height={250}
-              width={300}
-            />
-            <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
-              Refrigerator Repair
-            </h3>
-          </Link>
-        </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={8}>
-          <Link className="group rounded-md" href="/">
-            <Image
-              src="/oven.jpeg"
-              alt="oben"
-              layout="responsive"
-              height={250}
-              width={300}
-            />
-            <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
-              Refrigerator Repair
-            </h3>
-          </Link>
-        </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={8}>
-          <Link className="group" href="/">
-            <Image
-              src="/oven.jpeg"
-              alt="oben"
-              layout="responsive"
-              height={250}
-              width={300}
-            />
-            <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
-              Refrigerator Repair
-            </h3>
-          </Link>
-        </Col>
+        {
+          categorires?.slice(0,3).map(((category:any)=>(
+            <Col key={category?.id} xs={24} sm={24} md={12} lg={12} xl={8}>
+            <Link className="group rounded-md" href="/">
+              <Image
+                src={category?.image}
+                alt="oben"
+                layout="responsive"
+                height={250}
+                width={500}
+                className="w-[450px] h-[250px]"
+              />
+              <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
+                {category.title}
+              </h3>
+            </Link>
+          </Col>
+          )))
+        }
+      
       </Row>
     </div>
   );
