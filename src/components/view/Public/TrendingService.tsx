@@ -8,7 +8,7 @@ import { Button} from "antd";
 import Image from "next/image";
 import Link from "next/link";
 
-const TrendingService = () => {
+const TrendingService = ({services}:any) => {
   const swiperRef = useRef(null);
   console.log(swiperRef?.current)
   const goNext = () => {
@@ -30,16 +30,17 @@ const TrendingService = () => {
         </h1>
         <div className="flex gap-3 items-center mx-5">
             <Button
-              className="swiper-button-next flex items-center justify-center w-12 h-12 border border-primary shadow-lg shadow-gray-400 bg-primary text-white rounded-full"
-              onClick={goNext}
+              className="swiper-button-prev flex items-center justify-center w-12 h-12 border border-primary shadow-lg shadow-gray-400 bg-primary text-white rounded-full"
+              onClick={goPrev}
             >
               <ArrowLeftOutlined className="text-white font-bold"/>
             </Button>
             <Button
-              className="swiper-button-prev flex items-center justify-center w-12 h-12 border border-primary shadow-lg shadow-gray-400 bg-primary text-white rounded-full"
-              onClick={goPrev}
+              className="swiper-button-next flex items-center justify-center w-12 h-12 border border-primary shadow-lg shadow-gray-400 bg-primary text-white rounded-full"
+              onClick={goNext}
             >
-              <ArrowRightOutlined className="text-white  text-lg font-bold" />
+               <ArrowRightOutlined className="text-white  text-lg font-bold" />
+             
             </Button>
           </div>
       </div>
@@ -49,10 +50,10 @@ const TrendingService = () => {
           spaceBetween={30}
           breakpoints={{
             640: {
-              slidesPerView: 1,
+              slidesPerView: 2,
               spaceBetween: 20,
             },
-            768: {
+            800: {
               slidesPerView: 2,
               spaceBetween: 20,
             },
@@ -68,135 +69,27 @@ const TrendingService = () => {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
-          className="mySwiper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          className="mySwiper grid grid-cols-1 sm:grid-cols-3"
         >
-     
-         <SwiperSlide>
-            <Link className="group w-[350px]" href="/">
+         {
+          services?.data?.slice(0,6)?.map((service:any)=>(
+            <SwiperSlide key={service.id}>
+            <Link className="group w-full h-[250px] no-underline" href={`/all-services/${service.id}`}>
               <Image
-                src="/oven.jpeg"
+                src={service.image}
                 alt="oben"
                 layout="responsive"
                 height={350}
                 width={300}
+                className="w-full h-full"
               />
               <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
-                Refrigerator Repair
+              {service.name}sdffsadf
               </h3>
             </Link>
           </SwiperSlide>
-          <SwiperSlide>
-            <Link className="group w-[350px]" href="/">
-              <Image
-                src="/oven.jpeg"
-                alt="oben"
-                layout="responsive"
-                height={350}
-                width={300}
-              />
-              <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
-                Refrigerator Repair
-              </h3>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link className="group w-[350px]" href="/">
-              <Image
-                src="/oven.jpeg"
-                alt="oben"
-                layout="responsive"
-                height={350}
-                width={300}
-              />
-              <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
-                Refrigerator Repair
-              </h3>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link className="group w-[350px]" href="/">
-              <Image
-                src="/oven.jpeg"
-                alt="oben"
-                layout="responsive"
-                height={350}
-                width={300}
-              />
-              <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
-                Refrigerator Repair
-              </h3>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link className="group w-[350px]" href="/">
-              <Image
-                src="/oven.jpeg"
-                alt="oben"
-                layout="responsive"
-                height={350}
-                width={300}
-              />
-              <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
-                Refrigerator Repair
-              </h3>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link className="group w-[350px]" href="/">
-              <Image
-                src="/oven.jpeg"
-                alt="oben"
-                layout="responsive"
-                height={350}
-                width={300}
-              />
-              <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
-                Refrigerator Repair
-              </h3>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link className="group w-[350px]" href="/">
-              <Image
-                src="/oven.jpeg"
-                alt="oben"
-                layout="responsive"
-                height={350}
-                width={300}
-              />
-              <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
-                Refrigerator Repair
-              </h3>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link className="group w-[350px]" href="/">
-              <Image
-                src="/oven.jpeg"
-                alt="oben"
-                layout="responsive"
-                height={350}
-                width={300}
-              />
-              <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
-                Refrigerator Repair
-              </h3>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link className="group w-[350px]" href="/">
-              <Image
-                src="/oven.jpeg"
-                alt="oben"
-                layout="responsive"
-                height={350}
-                width={300}
-              />
-              <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
-                Refrigerator Repair
-              </h3>
-            </Link>
-          </SwiperSlide>
+          ))
+         }
        
         </Swiper>
     </div>

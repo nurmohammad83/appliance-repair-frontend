@@ -1,4 +1,4 @@
-const { signIn } = require("next-auth/react");
+import { signIn } from "next-auth/react";
 
 export const loginUser = async ({
   email,

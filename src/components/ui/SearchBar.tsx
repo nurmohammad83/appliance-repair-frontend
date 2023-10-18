@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { AutoComplete, Input } from "antd";
 
 interface AutocompleteInputProps {
-  data: { name: string; link: string }[];
+  data:any[];
   placeholder: string;
   onSelect: (value: string, link: string) => void;
 }
@@ -26,9 +26,9 @@ const SearchBar = ({
 
   const filterOptions = (
     inputValue: string,
-    option: { name: string; link: string }
+    option: { title: string; link: string }
   ) => {
-    return option.name.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1;
+    return option.title.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1;
   };
 
   const filterSort = (a: string, b: string) => {
@@ -40,10 +40,10 @@ const SearchBar = ({
       value={value}
       options={data
         .filter((option) => filterOptions(value, option))
-        .sort((a, b) => filterSort(a.name, b.name))
+        .sort((a, b) => filterSort(a.title, b.title))
         .map((option) => ({
-          value: option.name,
-          link: option.link,
+          value: option.title,
+          link: option.title,
         }))}
       style={{ width: "100%" }}
       onSelect={(value, option) => handleSelect(value, option.link)}

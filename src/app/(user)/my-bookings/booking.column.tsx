@@ -3,44 +3,30 @@ import Link from "next/link";
 import { EllipsisOutlined } from "@ant-design/icons";
 import { Button, Dropdown, MenuProps } from "antd";
 
-// const handelDelete = async (id: string) => {
-//   await deleteDoctor(id);
-// };
-
-// const getMenuItems = (id: string): MenuProps["items"] => [
-//   {
-//     key: "1",
-//     label: <Link href={`/admins/doctors/${id}`}>Details</Link>,
-//   },
-//   {
-//     key: "2",
-//     label: <Link href={`/admins/doctors/${id}/update`}>Edit</Link>,
-//     onClick: () => {
-//       console.log("Edit");
-//     },
-//   },
-//   {
-//     key: "3",
-//     label: <span>Delete</span>,
-//     onClick: () => {
-//       handelDelete(id);
-//     },
-//   },
-// ];
-
 export const columns = [
   {
-    title: "Service Id",
-    dataIndex: "serviceId",
-    key: "serviceId",
+    title: "Name",
+    render:function(data:Record<string,string>){
+      const fullName = `${data?.user?.fullName}`
+      return <>{fullName}</>
+    },
+    key: "name",
   },
   {
-    title: "User Id",
-    dataIndex: "userId",
-    key: "userId",
+    title: "Service",
+    render:function(data:Record<string,string>){
+      
+      return <>{data.service?.name}</>
+    },
+    key: "service",
   },
   {
-    status: "Status",
+    title: "Service Date",
+    dataIndex: "date",
+    key: "date",
+  },
+  {
+    title: "Status",
     dataIndex: "status",
     key: "status",
   },
@@ -50,8 +36,8 @@ export const columns = [
     render: (record: any) => {
     
       return (
-          <Button>
-            <EllipsisOutlined />
+          <Button type="primary" className="bg-primary">
+            PAY
           </Button>
 
       );

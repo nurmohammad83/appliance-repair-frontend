@@ -40,7 +40,7 @@ const RegisterForm = () => {
   return (
     <div>
       <div className="flex font-poppins justify-center my-8 items-center flex-col">
-        <div className="text-center py-5 sm:py-10">
+        <div className="text-center py-5 sm:py-12">
           <span className="text-primary font-bold">PROTECHFIXER</span>
           <h2 className="text-xl font-roboto">Create Your Account</h2>
         </div>

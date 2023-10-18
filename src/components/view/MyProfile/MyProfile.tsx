@@ -5,7 +5,8 @@ import { Card, Form, Input, Button, Avatar, Upload } from 'antd';
 import { UserOutlined, UploadOutlined } from '@ant-design/icons';
 import { IUser } from '@/types/user';
 
-const MyProfile = ({user}:{user:IUser}) => {
+const MyProfile = (user:any) => {
+  console.log(user.user)
   // Handle form submission
 //   const handleFormSubmit = (values:any) => {
 //     // Handle the form submission here (e.g., updating user data).
@@ -35,29 +36,22 @@ const MyProfile = ({user}:{user:IUser}) => {
         // onFinish={handleFormSubmit}
         // onFinishFailed={onFinishFailed}
       >
-        <Form.Item className='flex justify-center items-center'>
+        <div className='flex gap-5 justify-center items-center'>
           <Upload >
             <Avatar size={100} icon={<UserOutlined />} />
           </Upload>
-        </Form.Item>
-        <Form.Item
-          label="Full Name"
-          name="fullName"
-        >
-          <Input disabled className='placeholder:text-primary' placeholder={user.fullName} prefix={<UserOutlined />} />
-        </Form.Item>
-        <Form.Item
-          label="Email"
-          name="email"
-        >
-          <Input disabled className='placeholder:text-primary' placeholder={user.email} value="mohamamdnur@gmailcom"/>
-        </Form.Item>
-        <Form.Item
-          label="Gender"
-          name="gender"
-        >
-          <Input disabled className='placeholder:text-primary' placeholder="N/A" value="m"/>
-        </Form.Item>
+        </div>
+        <div className='flex font-roboto flex-col mt-6 justify-center items-start gap-5'>
+        <div className='text-base font-bold'>
+         <span>Name:</span> <span className='text-sm text-primary'>{user.user.fullName}</span>
+        </div>
+        <div className='text-base font-bold'>
+         <span>Email:</span> <span className='text-sm'>{user.user.email}</span>
+        </div>
+        </div>
+        <div className='flex justify-end'>
+          <Button>Update Profile</Button>
+        </div>
       </Form>
     </Card>
   );

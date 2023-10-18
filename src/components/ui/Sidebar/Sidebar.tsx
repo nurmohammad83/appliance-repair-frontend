@@ -21,9 +21,9 @@ const items = [
 
 const Sidebar = ({children}:{children:ReactNode}) => {
   return (
-    <div className="px-24 font-poppins top-10 mt-20">
+    <div className="px-8">
       <div className="text-secondary font-bold text-3xl font-poppins  py-10">
-        All Services
+        DashBoard
       </div>
       <Layout hasSider>
         <Sider

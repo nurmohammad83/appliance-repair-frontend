@@ -5,10 +5,9 @@ import { getServerSession } from "next-auth";
 
 const MyProfilePage =async () => {
   const session = await getServerSession(authOptions);
-  const user = await getSingleUser(session?.user?.email as string)
   return (
     <div>
-      <MyProfile user={user}/>
+      <MyProfile user={session}/>
     </div>
   )
 }

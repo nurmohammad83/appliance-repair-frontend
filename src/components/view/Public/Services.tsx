@@ -27,16 +27,18 @@ const Services =async ({categorires}:any) => {
       >
         {
           categorires?.slice(0,3).map(((category:any)=>(
-            <Col key={category?.id} xs={24} sm={24} md={12} lg={12} xl={8}>
-            <Link className="group rounded-md" href="/">
-              <Image
+            <Col className="w-[350px]" key={category?.id} xs={24} sm={24} md={12} lg={12} xl={8}>
+            <Link className="group rounded-md" href={`/all-services/#${category.title}`}>
+             <div className="w-full">
+             <Image
                 src={category?.image}
-                alt="oben"
+                alt="image"
                 layout="responsive"
                 height={250}
-                width={500}
-                className="w-[450px] h-[250px]"
+                width={400}
+                className="w-full h-[250px]"
               />
+             </div>
               <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
                 {category.title}
               </h3>

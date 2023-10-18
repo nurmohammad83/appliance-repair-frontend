@@ -1,22 +1,17 @@
 
 "use client";
-import { Input, Select, Typography } from "antd";
+import { Typography } from "antd";
 import AutocompleteInput from "../../ui/SearchBar";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 
 const { Title, Paragraph } = Typography;
-const data = [
-  { name: "Refrigerator", link: "/refrigerator-details" },
-  { name: "Washing Machine", link: "/washing-machine-details" },
-  { name: "Dishwasher", link: "/dishwasher-details" },
-  { name: "Oven", link: "/oven-details" },
-  { name: "Microwave", link: "/microwave-details" },
-  // Add more appliance data with links as needed
-];
 
-const Hero = () => {
-  const handleSelect = (value: string, link: string) => {
-    console.log(`${value}${link}`);
+const Hero = ({data}:any) => {
+  const router = useRouter()
+  const handleSelect = ( link: string) => {
+    router.push(`/all-services/#${link}`)
   };
   return (
     <div>

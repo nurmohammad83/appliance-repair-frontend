@@ -8,20 +8,25 @@ import Testimonial from "@/components/view/Public/Testimonial";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./lib/AuthOptions";
 import { getAllCategories } from "@/services/category/get-all-category";
+import { getAllServices } from "@/services/our-service/get-all-services";
 const Home =async () => {
   const session = await getServerSession(authOptions);
   const data = await getAllCategories()
- 
+ const services = await getAllServices()
   return (
-    <>
+    <div>
       <PublicHeader session={session ? true : false}/>
-      <Hero />
+      <div className="min-h-[calc(100vh-64px)]">
+
+     
+      <Hero data={data}/>
       <Services categorires={data}/>
-      <TrendingService />
+      <TrendingService services={services}/>
       <ChooseUs />
       <Work />
       <Testimonial />
-    </>
+      </div>
+    </div>
   );
 };
 export default Home;

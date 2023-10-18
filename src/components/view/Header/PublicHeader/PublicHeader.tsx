@@ -52,16 +52,7 @@ const PublicHeader =  ({session}:{session:boolean}) => {
       label: "Services",
       href: "/all-services",
     },
-    {
-      key: "3",
-      label: "About",
-      href: "/about-us",
-    },
-    {
-      key: "3",
-      label: "My Profile",
-      href: "/my-profile",
-    },
+
   ];
 
   const totalEndpoint = session ? logInItem : publicItems
@@ -72,7 +63,7 @@ const PublicHeader =  ({session}:{session:boolean}) => {
     },
     {
       key: "2",
-      label: <Link href="/dashboard">Dashboard</Link>,
+      label: <Link href="/my-bookings">Dashboard</Link>,
     },
     {
       key: "3",
@@ -88,7 +79,7 @@ const PublicHeader =  ({session}:{session:boolean}) => {
       </Link>
     </div>
     <Menu
-      className="md:flex bg-transparent justify-center items-center text-black hidden"
+      className="md:flex bg-transparent bg-none justify-center items-center text-black hidden"
       disabledOverflow
       theme="dark"
       mode="horizontal"
@@ -98,7 +89,7 @@ const PublicHeader =  ({session}:{session:boolean}) => {
           className="bg-none  text-black font-medium leading-6 p-0 mx-4"
           key={item.href}
         >
-          <Link className="m-0 p-0 bg-none listing" href={item.href}>
+          <Link className="m-0 p-0 bg-none  listing" href={item.href}>
             {item.label}
           </Link>
         </Menu.Item>

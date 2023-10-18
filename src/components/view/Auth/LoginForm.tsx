@@ -1,22 +1,21 @@
 "use client";
 
 import { Button, message } from "antd";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Form from "../Form/Form";
 import FormInput from "../Form/FormInput";
 import Link from "next/link";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "@/schemas/loginSchema";
+import { loginUser } from "@/helpers/logInUser";
 
 const LoginForm = () => {
   const router = useRouter();
   const onSubmit = async (values: any) => {
-    const result = await signIn("pro-tech-fixer", {
+    const result =await loginUser({
       email: values.email,
       password: values.password,
-      callbackUrl: "/",
-    });
+    })
 
     if (result?.ok && !result.error) {
       router.push("/");
@@ -24,8 +23,8 @@ const LoginForm = () => {
     }
   };
   return (
-    <div>
-      <div className="flex font-poppins justify-center mt-24 items-center flex-col">
+    <div className="min-h-full">
+      <div className="flex font-poppins justify-center my-24 items-center flex-col">
         <div className="text-center py-5 sm:py-10">
           <span className="text-primary font-bold">PROTECHFIXER</span>
           <h2 className="text-xl font-roboto">Log In Your Account</h2>
