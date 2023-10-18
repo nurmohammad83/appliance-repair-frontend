@@ -5,6 +5,7 @@ import Sider from "antd/es/layout/Sider";
 import { Content } from "antd/es/layout/layout";
 import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
+import ReviewBox from "./ReviewBox";
 
 const ServiceSidebar = ({service}:any) => {
   const items = [
@@ -119,6 +120,7 @@ const ServiceSidebar = ({service}:any) => {
           </section>
           <section id="reviews">
           <h2 className="text-2xl font-bold font-poppins py-5"> Reviews & Rating of {service.name}</h2>
+          <ReviewBox />
           </section>
         </Content>
       </Layout>
