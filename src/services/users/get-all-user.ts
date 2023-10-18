@@ -22,10 +22,10 @@ export const getAllDoctors = async (
     headers: {
       "Content-Type": "application/json",
     },
-    next: {
-      revalidate: 24 * 60 * 60,
-      tags: ["all-users"],
-    },
+    // next: {
+    //   revalidate: 24 * 60 * 60,
+    //   tags: ["all-users"],
+    // },
   });
   const { data } = await res.json();
   if (res.ok && data) {

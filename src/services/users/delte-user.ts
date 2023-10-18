@@ -7,5 +7,5 @@ export const deleteUser = async (id: string) => {
     method: "DELETE",
   });
   const { data } = await res.json();
-  revalidateTag("all-users");
+  // revalidateTag("all-users");
 };

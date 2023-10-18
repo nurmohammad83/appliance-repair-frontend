@@ -1,5 +1,5 @@
 "use client";
-import { Button, Modal, Typography, message } from "antd";
+import { Button, Menu, Modal, Typography, message } from "antd";
 import {
   StarFilled,
   CheckOutlined,
@@ -11,15 +11,53 @@ import { useState } from "react";
 import Schedule from "./Schedule";
 import dayjs from "dayjs";
 const { Title, Paragraph } = Typography;
+const { confirm } = Modal;
 
-const ServiceDetails = ({ service, slots }: any) => {
+const ServiceDetails = ({ service, slots, user }: any) => {
   const [handleModalOpen, setHandleModalOpen] = useState<boolean>(false);
+  
   const [selectedValue, setSelectedValue] = useState(() => dayjs("2023-10-18"));
   const [slot, setSlot] = useState(null);
-  console.log(selectedValue.format("DD/MM/YYYY"), "selected value");
+  console.log(selectedValue?.format('YYYY-MM-DD'))
+  
+  const filerBooking = service.bookings.find((book:any)=> book.date)
+  
 
-  const handleCreateBooking = async (value: any) => {
-    console.log(value);
+  const filterSlot = slots.filter((slot:any)=>slot.id !== filerBooking.slotId)
+
+  console.log(filterSlot,'filter slot')
+
+
+  const handleCreateBooking = async (id: string) => {
+    confirm({
+      title: (
+        <div>
+          <h2 className="text-secondary text-lg font-poppins text-center py-4">
+            Please note for this Services
+          </h2>
+          <ul>
+            <li>Hanging Charge 499 tk (If applicable)</li>
+            <li>Transportation Cost (if applicable)</li>
+            <li>Hanging Charge 499 tk (If applicable)</li>
+          </ul>
+        </div>
+      ),
+      okType: "primary",
+      async onOk() {
+        try {
+          const data = {
+            userId: user.id,
+            serviceId: id,
+            slotId: slot,
+            date: selectedValue.format("YYYY-MM-DD"),
+          };
+          console.log(data);
+          message.success("Successfully Booked");
+        } catch (error) {
+          message.error("Failed to booking. Please try again");
+        }
+      },
+    });
   };
   return (
     <div>
@@ -106,16 +144,23 @@ const ServiceDetails = ({ service, slots }: any) => {
                     Select your prefer time, expert will arrive by your selected
                     time
                   </h2>
-                  <div className="grid grid-cols-5 gap-5">
-                    {slots.map((slot: any) => (
-                      <Button
-                        onClick={() => setSlot(slot.slotTime)}
-                        key={slot}
-                        className="text-primary border-primary"
-                      >
-                        {slot.slotTime}
-                      </Button>
-                    ))}
+                  <div className="">
+                    <Menu
+                      className="bg-transparent h-full"
+                      disabledOverflow
+                      mode="horizontal"
+                    >
+                      {filterSlot?.map((slot: any) => (
+                        <Menu.Item className="rounded-none" key={slot.id}>
+                          <Button
+                            className="text-primary border-dimPrimary"
+                            onClick={() => setSlot(slot.id)}
+                          >
+                            {slot.slotTime}
+                          </Button>
+                        </Menu.Item>
+                      ))}
+                    </Menu>
                   </div>
                 </div>
                 <div className="flex items-center justify-center">
@@ -123,7 +168,7 @@ const ServiceDetails = ({ service, slots }: any) => {
                     size="large"
                     type="primary"
                     onClick={() => {
-                      handleCreateBooking("");
+                      handleCreateBooking(service.id);
                     }}
                     className=" mt-6 bg-primary hover:bg-primary text-white font-semibold rounded"
                   >

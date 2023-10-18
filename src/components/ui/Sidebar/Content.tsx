@@ -1,6 +1,5 @@
 'use client'
 
-import PublicHeader from '@/components/view/Header/PublicHeader/PublicHeader';
 import { Layout } from 'antd';
 
 const { Content } = Layout;

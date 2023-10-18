@@ -8,10 +8,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const AllServices = ({data}:any) => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-
   return (
     <div className="px-6 sm:px-12 relative min-h-screen block md:px-24 font-poppins">
       <div className="text-secondary font-bold text-3xl font-poppins  py-10">

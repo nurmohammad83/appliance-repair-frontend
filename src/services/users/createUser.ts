@@ -11,6 +11,6 @@ export const createUser = async (data: any) => {
     cache: "no-cache",
   });
   const { data: userData } = await res.json();
-  revalidateTag("all-users");
+  // revalidateTag("all-users");
   return userData;
 };
