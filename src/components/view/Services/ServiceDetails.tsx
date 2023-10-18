@@ -18,14 +18,14 @@ const ServiceDetails = ({ service, slots, user }: any) => {
   
   const [selectedValue, setSelectedValue] = useState(() => dayjs("2023-10-18"));
   const [slot, setSlot] = useState(null);
-  console.log(selectedValue?.format('YYYY-MM-DD'))
+  // console.log(selectedValue?.format('YYYY-MM-DD'))
   
-  const filerBooking = service.bookings.find((book:any)=> book.date)
+  // const filerBooking = service.bookings.find((book:any)=> book.date)
   
 
-  const filterSlot = slots.filter((slot:any)=>slot.id !== filerBooking.slotId)
+  // const filterSlot = slots.filter((slot:any)=>slot.id !== filerBooking.slotId)
 
-  console.log(filterSlot,'filter slot')
+  // console.log(filterSlot,'filter slot')
 
 
   const handleCreateBooking = async (id: string) => {
@@ -150,7 +150,7 @@ const ServiceDetails = ({ service, slots, user }: any) => {
                       disabledOverflow
                       mode="horizontal"
                     >
-                      {filterSlot?.map((slot: any) => (
+                      {slots?.map((slot: any) => (
                         <Menu.Item className="rounded-none" key={slot.id}>
                           <Button
                             className="text-primary border-dimPrimary"
