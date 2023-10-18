@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import Providers from './lib/Providers'
+import AppFooter from '@/components/view/AppFooter/AppFooter'
 
 export const metadata: Metadata = {
   title: 'ProTechFixers',
@@ -14,7 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body><Providers>{children}</Providers></body>
+      <body>
+        <Providers>
+          {children}
+          <AppFooter />
+        </Providers>
+      </body>
     </html>
   )
 }

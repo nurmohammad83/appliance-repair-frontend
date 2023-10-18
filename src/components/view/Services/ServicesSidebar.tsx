@@ -6,8 +6,11 @@ import { Content } from "antd/es/layout/layout";
 import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
 import ReviewBox from "./ReviewBox";
+import AllReview from "./AllReview";
 
-const ServiceSidebar = ({service}:any) => {
+const ServiceSidebar = ({service,reviews,user}:any) => {
+  const serviceReview = reviews.filter((review:any)=>review.serviceId === service.id)
+
   const items = [
     {
       label: "Service Details",
@@ -120,7 +123,8 @@ const ServiceSidebar = ({service}:any) => {
           </section>
           <section id="reviews">
           <h2 className="text-2xl font-bold font-poppins py-5"> Reviews & Rating of {service.name}</h2>
-          <ReviewBox />
+          <AllReview serviceReview={serviceReview}/>
+          <ReviewBox user={user} id={service.id}/>
           </section>
         </Content>
       </Layout>

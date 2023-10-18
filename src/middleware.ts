@@ -9,7 +9,7 @@ const logedInUserAccessibleRoutes = [
   "/my-bookings",
 ];
 const rolesRedirect: Record<string, unknown> = {
-  user: "http://localhost:3000/dashboard",
+  user: "http://localhost:3000/my-profile",
   admin: "http://localhost:3000/admin/dashboard",
   super_admin: "http://localhost:3000/super-admin/dashboard",
 };

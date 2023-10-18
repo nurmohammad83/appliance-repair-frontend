@@ -16,6 +16,10 @@ const PublicHeader =  ({session}:{session:boolean}) => {
   const showDrawer = () => {
     setOpen(true);
   };
+  const handelSignOut = ()=>{
+    signOut()
+    router.push('/')
+  }
   const onClose = () => {
     setOpen(false);
   };
@@ -72,7 +76,7 @@ const PublicHeader =  ({session}:{session:boolean}) => {
     },
     {
       key: "3",
-      label: <Button type="primary" className="text-white m-0" block danger onClick={()=>signOut()} href="/log">Log Out</Button>,
+      label: <Button type="primary" className="text-white m-0" block danger onClick={()=>handelSignOut()}>Log Out</Button>,
     },
   ];
   return (

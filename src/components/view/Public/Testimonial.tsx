@@ -15,7 +15,7 @@ const Testimonial = () => {
     <div className=" px-10 sm:px-24 py-10 mt-10 sm:py-16">
       <div className="py-5 flex items-center gap-3">
         <hr className="w-10 h-[3px] bg-primary my-2" />{" "}
-        <span className="text-sm">HOW IT WORKS</span>
+        <span className="text-sm">TESTIMONIAL</span>
       </div>
       <h1 className="font-medium mb-8 sm:text-4xl sm:font-bold font-poppins text-secondary  text-sm">
         Easiest way to get a service

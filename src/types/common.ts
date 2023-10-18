@@ -24,3 +24,10 @@ export type ILogin = {
   email: string;
   password: string;
 };
+
+export type IReview = {
+  review: string;
+  rating: number;
+  userId: string;
+  serviceId: string;
+};

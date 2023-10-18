@@ -13,7 +13,7 @@ import dayjs from "dayjs";
 const { Title, Paragraph } = Typography;
 const { confirm } = Modal;
 
-const ServiceDetails = ({ service, slots, user }: any) => {
+const ServiceDetails = ({ service, slots, user , reviews}: any) => {
   const [handleModalOpen, setHandleModalOpen] = useState<boolean>(false);
   
   const [selectedValue, setSelectedValue] = useState(() => dayjs("2023-10-18"));
@@ -182,7 +182,7 @@ const ServiceDetails = ({ service, slots, user }: any) => {
       </div>
 
       <div className="px-5 sm:px-14 mt-12">
-        <ServiceSidebar service={service} />
+        <ServiceSidebar reviews={reviews} user={user} service={service} />
       </div>
     </div>
   );
