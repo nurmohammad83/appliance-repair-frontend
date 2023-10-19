@@ -1,9 +1,9 @@
 "use server";
 
-import { IUser } from "@/types/user";
+import { ICategory } from "@/types/common";
 
-export const getAllCategories = async (): Promise<any> => {
-  const res = await fetch(`http://localhost:4000/api/v1/categories`, {
+export const getAllCategories = async (): Promise<ICategory[]> => {
+  const res = await fetch(`${process.env.NEXT_SERVER_URL}/categories`, {
     headers: {
       "Content-Type": "application/json",
     },

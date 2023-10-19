@@ -7,9 +7,16 @@ import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
 import ReviewBox from "./ReviewBox";
 import AllReview from "./AllReview";
+import { IReviewAndRating, IService, IUser } from "@/types/common";
 
-const ServiceSidebar = ({service,reviews,user}:any) => {
-  const serviceReview = reviews.filter((review:any)=>review.serviceId === service.id)
+interface IProps {
+  service:IService,
+  reviews:IReviewAndRating[],
+  user:IUser
+}
+
+const ServiceSidebar = ({service,reviews,user}:IProps) => {
+  const serviceReview = reviews.filter((review:IReviewAndRating)=>review.serviceId === service.id)
 
   const items = [
     {

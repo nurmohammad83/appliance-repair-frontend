@@ -27,7 +27,8 @@ const RegisterForm = () => {
           password: values?.password,
         });
         if (logInRes && !logInRes.ok) {
-          setSubmitError(logInRes.error || "");
+          // @ts-ignore
+          setSubmitError(logInRes?.error || "");
         } else {
           router.push("/");
           message.success("User Create in successfully");
@@ -35,6 +36,7 @@ const RegisterForm = () => {
       }
     } catch (error) {
       console.log(error);
+      message.warning("Please try again");
     }
   };
   return (

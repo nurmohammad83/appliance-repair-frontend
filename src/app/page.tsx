@@ -17,8 +17,6 @@ const Home =async () => {
     <div>
       <PublicHeader session={session ? true : false}/>
       <div className="min-h-[calc(100vh-64px)]">
-
-     
       <Hero data={data}/>
       <Services categorires={data}/>
       <TrendingService services={services}/>

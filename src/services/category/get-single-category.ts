@@ -1,7 +1,9 @@
 "use server";
 
-export const singleCategory = async (id: string) => {
-  const res = await fetch(`http://localhost:4000/api/v1/categories/${id}`, {
+import { ICategory } from "@/types/common";
+
+export const singleCategory = async (id: string): Promise<ICategory> => {
+  const res = await fetch(`${process.env.NEXT_SERVER_URL}/categories/${id}`, {
     method: "GET",
   });
   const { data } = await res.json();

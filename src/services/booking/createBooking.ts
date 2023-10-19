@@ -3,25 +3,21 @@
 import { authOptions } from "@/app/lib/AuthOptions";
 import { IBooking } from "@/types/common";
 import { getServerSession } from "next-auth";
+import { revalidateTag } from "next/cache";
 
-export const getAllBookings = async (): Promise<IBooking[]> => {
+export const createBooking = async (data: IBooking): Promise<IBooking> => {
   const session = await getServerSession(authOptions);
   const res = await fetch(`${process.env.NEXT_SERVER_URL}/bookings`, {
-    method: "GET",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       // @ts-ignore
       Authorization: `${session?.accessToken}`,
     },
-    next: {
-      revalidate: 24 * 60 * 60,
-      tags: ["all-booking"],
-    },
+    body: JSON.stringify(data),
+    cache: "no-cache",
   });
-  const { data } = await res.json();
-  if (res.ok && data) {
-    return data;
-  } else {
-    return [];
-  }
+  revalidateTag("all-bookings");
+  const { data: booking } = await res.json();
+  return booking;
 };

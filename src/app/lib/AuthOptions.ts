@@ -19,7 +19,7 @@ export const authOptions: AuthOptions = {
       },
       async authorize(credentials, req) {
         try {
-          const res = await fetch("http://localhost:4000/api/v1/auth/login", {
+          const res = await fetch(`${process.env.NEXT_SERVER_URL}/auth/login`, {
             method: "POST",
             body: JSON.stringify(credentials),
             headers: {

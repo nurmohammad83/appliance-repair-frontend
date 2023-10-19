@@ -11,15 +11,22 @@ import { loginUser } from "@/helpers/logInUser";
 
 const LoginForm = () => {
   const router = useRouter();
-  const onSubmit = async (values: any) => {
-    const result =await loginUser({
-      email: values.email,
-      password: values.password,
-    })
-
-    if (result?.ok && !result.error) {
-      router.push("/");
-      message.success("User log in successfully");
+  const onSubmit = async (values: {email:string,password:string}) => {
+    console.log(values)
+    try {
+      const result =await loginUser({
+        email: values.email,
+        password: values.password,
+      })
+      console.log(result)
+      if (result?.ok && !result.error) {
+        router.push("/");
+        message.success("User log in successfully");
+      }else if(result?.error){
+        message.error('Invalid Email & password')
+      }
+    } catch (error) {
+      message.error("Please try again");
     }
   };
   return (

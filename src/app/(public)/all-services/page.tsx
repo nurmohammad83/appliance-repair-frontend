@@ -4,10 +4,9 @@ import { getAllServices } from "@/services/our-service/get-all-services"
 
 const ServicesPage =async () => {
   const data = await getAllCategories()
-  const services = await getAllServices()
   return (
     <div className="relative min-h-screen block scroll-smooth">
-        <AllServices data={data} services={services}/>
+        <AllServices data={data}/>
     </div>
   )
 }

@@ -1,13 +1,12 @@
 "use client";
-import Link from "next/link";
-import { EllipsisOutlined } from "@ant-design/icons";
-import { Button, Dropdown, MenuProps } from "antd";
+import { Button } from "antd";
 
 export const columns = [
   {
     title: "Name",
     render:function(data:Record<string,string>){
-      const fullName = `${data?.user?.fullName}`
+      //@ts-ignore
+      const fullName = `${data.user.fullName}`
       return <>{fullName}</>
     },
     key: "name",
@@ -15,7 +14,7 @@ export const columns = [
   {
     title: "Service",
     render:function(data:Record<string,string>){
-      
+      //@ts-ignore
       return <>{data.service?.name}</>
     },
     key: "service",

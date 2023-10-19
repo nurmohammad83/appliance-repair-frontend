@@ -2,8 +2,10 @@ import { Button, Col, Row } from "antd";
 import Image from "next/image";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import Link from "next/link";
+import { ICategory } from "@/types/common";
 
-const Services =async ({categorires}:any) => {
+const Services =async ({categories}:{categories:ICategory[]}) => {
+  console.log(categories)
   return (
     <div className="px-10 sm:px-24 py-10 mt-10 sm:py-24">
       <div className="flex justify-between items-center">
@@ -26,7 +28,7 @@ const Services =async ({categorires}:any) => {
         gutter={[24, 24]}
       >
         {
-          categorires?.slice(0,3).map(((category:any)=>(
+          categories?.slice(0,3)?.map(((category:any)=>(
             <Col className="w-[350px]" key={category?.id} xs={24} sm={24} md={12} lg={12} xl={8}>
             <Link className="group rounded-md" href={`/all-services/#${category.title}`}>
              <div className="w-full">

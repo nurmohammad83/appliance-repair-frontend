@@ -1,15 +1,23 @@
 import { authOptions } from "@/app/lib/AuthOptions";
 import MyProfile from "@/components/view/MyProfile/MyProfile"
-import { getSingleUser } from "@/services/users/getSingleUser";
+import { IUser } from "@/types/common";
 import { getServerSession } from "next-auth";
 
-const MyProfilePage =async () => {
+const MyProfilePage =async ()=> {
   const session = await getServerSession(authOptions);
-  const user = await getSingleUser(session?.email)
-  console.log(user,'orginal')
+  // @ts-ignore
+  const res = await fetch(`${process.env.NEXT_SERVER_URL}/users?email=${session?.email}`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    next: {
+      tags: ["all-users"],
+    },
+  });
+  const {data}  = await res.json()
   return (
     <div>
-      <MyProfile user={user}/>
+      <MyProfile session={data[0]}/>
     </div>
   )
 }

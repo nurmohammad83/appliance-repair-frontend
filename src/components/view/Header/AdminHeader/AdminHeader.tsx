@@ -2,14 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import { Drawer, Button, Menu, Layout, Space, Dropdown, Avatar, MenuProps } from "antd";
-import { MenuOutlined,UserOutlined } from "@ant-design/icons";
+import { MenuOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
 const { Header } = Layout;
 
-const PublicHeader =  ({session}:{session:boolean}) => {
-  
+const AdminHeader =  ({session}:{session:boolean}) => {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -18,58 +17,26 @@ const PublicHeader =  ({session}:{session:boolean}) => {
   };
   const handelSignOut = ()=>{
     signOut()
-    router.push('/')
+    router.push('/login')
   }
   const onClose = () => {
     setOpen(false);
   };
 
-  const publicItems = [
+  const items = [
     {
       key: "1",
-      label: "Home",
-      href: "/",
+      label: "My Profile",
+      href: "/admin/my-profile",
     },
     {
       key: "2",
-      label: "Services",
-      href: "/all-services",
-    },
-    {
-      key: "3",
-      label: "About",
-      href: "/about-us",
+      label: "All User",
+      href: "/admin/all-user",
     },
   ];
-  const logInItem = [
-    {
-      key: "1",
-      label: "Home",
-      href: "/",
-    },
-    {
-      key: "2",
-      label: "Services",
-      href: "/all-services",
-    },
+ 
 
-  ];
-
-  const totalEndpoint = session ? logInItem : publicItems
-  const items: MenuProps["items"] = [
-    {
-      key: "1",
-      label: <Link href="/my-profile">My Profile</Link>,
-    },
-    {
-      key: "2",
-      label: <Link href="/my-bookings">Dashboard</Link>,
-    },
-    {
-      key: "3",
-      label: <Button type="primary" className="text-white m-0" block danger onClick={()=>handelSignOut()}>Log Out</Button>,
-    },
-  ];
   return (
     <Header className="flex sticky opacity-100 top-0 z-50 justify-between shadow-lg items-center bg-white">
       
@@ -84,7 +51,7 @@ const PublicHeader =  ({session}:{session:boolean}) => {
       theme="dark"
       mode="horizontal"
     >
-      {totalEndpoint?.map((item) => (
+      {items?.map((item) => (
         <Menu.Item
           className="bg-none  text-black font-medium leading-6 p-0 mx-4"
           key={item.href}
@@ -94,30 +61,28 @@ const PublicHeader =  ({session}:{session:boolean}) => {
           </Link>
         </Menu.Item>
       ))}
-
-      {session ? (
+        {session ? (
         
-          <div style={{display:'flex' , justifyContent:'center', gap:"5px"}}>
-          <Dropdown menu={ {items} }>
-            <a>
-              <Space size={28}>
-                <Avatar shape="circle" icon={<UserOutlined />} size="large" />
-              </Space>
-            </a>
-          </Dropdown>
-          </div>
-       
-      ) : (
         <Button
-          size="large"
-          className="bg-primary font-poppins font-medium text-white border-none"
-          onClick={() => {
-            router.push("/login");
-          }}
-        >
-          Sign In
-        </Button>
-      )}
+        size="large"
+        danger
+        className=" font-poppins font-medium bg-gray-300 text-black border-none"
+        onClick={() => handelSignOut()}
+      >
+        Sign Out
+      </Button>
+     
+    ) : (
+      <Button
+        size="large"
+        className="bg-primary font-poppins font-medium text-white border-none"
+        onClick={() => {
+          router.push("/login");
+        }}
+      >
+        Sign In
+      </Button>
+    )}
     </Menu>
 
     <div className=" block md:hidden">
@@ -135,7 +100,7 @@ const PublicHeader =  ({session}:{session:boolean}) => {
           selectedKeys={[pathname]}
           style={{ borderRight: 0 }}
         >
-          {totalEndpoint?.map((item) => (
+          {items?.map((item) => (
             <Menu.Item key={item.href}>
               <Link href={item.href}>{item.label}</Link>
             </Menu.Item>
@@ -146,4 +111,4 @@ const PublicHeader =  ({session}:{session:boolean}) => {
   </Header>
   );
 };
-export default PublicHeader;
+export default AdminHeader;

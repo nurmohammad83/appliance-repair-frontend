@@ -10,23 +10,24 @@ import ServiceSidebar from "./ServicesSidebar";
 import { useState } from "react";
 import Schedule from "./Schedule";
 import dayjs from "dayjs";
+import { createBooking } from "@/services/booking/createBooking";
+import { IBooking, IReviewAndRating, IService, ISlot, IUser } from "@/types/common";
 const { Title, Paragraph } = Typography;
 const { confirm } = Modal;
 
-const ServiceDetails = ({ service, slots, user , reviews}: any) => {
+interface IProps {
+  service:IService,
+  user:IUser,
+  slots:ISlot[]
+  reviews:IReviewAndRating[]
+}
+
+
+const ServiceDetails = ({ service, slots, user , reviews, }:IProps) => {
   const [handleModalOpen, setHandleModalOpen] = useState<boolean>(false);
   
   const [selectedValue, setSelectedValue] = useState(() => dayjs("2023-10-18"));
   const [slot, setSlot] = useState(null);
-  // console.log(selectedValue?.format('YYYY-MM-DD'))
-  
-  // const filerBooking = service.bookings.find((book:any)=> book.date)
-  
-
-  // const filterSlot = slots.filter((slot:any)=>slot.id !== filerBooking.slotId)
-
-  // console.log(filterSlot,'filter slot')
-
 
   const handleCreateBooking = async (id: string) => {
     confirm({
@@ -36,23 +37,29 @@ const ServiceDetails = ({ service, slots, user , reviews}: any) => {
             Please note for this Services
           </h2>
           <ul>
-            <li>Hanging Charge 499 tk (If applicable)</li>
+            <li>Hanging Charge 5$(If applicable)</li>
             <li>Transportation Cost (if applicable)</li>
-            <li>Hanging Charge 499 tk (If applicable)</li>
+            <li>Hanging Charge *$ (If applicable)</li>
           </ul>
         </div>
       ),
       okType: "primary",
       async onOk() {
+        if(user){
+          return message.info('Please login')
+        }
         try {
-          const data = {
-            userId: user.id,
+          const data:IBooking = {
+            userId: user?.id,
             serviceId: id,
             slotId: slot,
             date: selectedValue.format("YYYY-MM-DD"),
           };
-          console.log(data);
-          message.success("Successfully Booked");
+         const result = await createBooking(data)
+          if(result){
+            message.success("Successfully Booked");
+          setHandleModalOpen(false)
+          }
         } catch (error) {
           message.error("Failed to booking. Please try again");
         }
@@ -99,7 +106,7 @@ const ServiceDetails = ({ service, slots, user , reviews}: any) => {
               </span>
               {/* Subtitle */}
               <div className="py-5">
-                {service.subTitle.map((s: any) => (
+                {service.subTitle.map((s: string) => (
                   <Paragraph
                     key={s}
                     className="text-xl flex items-center gap-8 text-white/90"

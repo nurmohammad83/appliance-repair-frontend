@@ -1,27 +1,12 @@
 "use server";
 
-import { IUser } from "@/types/user";
+import { IService } from "@/types/common";
 
-export const getAllServices = async (): // query: Record<string, unknown>
-Promise<any> => {
-  // const queryParams = ["searchTerm", "fullName"];
-  // const filteredQuery = Object.keys(query).reduce((acc, key) => {
-  //   if (queryParams.includes(key)) {
-  //     acc[key] = query[key];
-  //   }
-  //   return acc;
-  // }, {} as Record<string, unknown>);
-  // const queryString = Object.keys(filteredQuery)
-  //   .reduce((acc, key) => {
-  //     acc.push(`${key}=${filteredQuery[key]}`);
-  //     return acc;
-  //   }, [] as string[])
-  //   .join("&");
-  const res = await fetch(`http://localhost:4000/api/v1/services`, {
+export const getAllServices = async (): Promise<IService[]> => {
+  const res = await fetch(`${process.env.NEXT_SERVER_URL}/services`, {
     headers: {
       "Content-Type": "application/json",
     },
-    cache: "no-cache",
   });
   const { data } = await res.json();
   if (res.ok && data) {

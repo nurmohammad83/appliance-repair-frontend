@@ -1,12 +1,13 @@
 "use server";
 
-export const getAllReviews = async (): Promise<any> => {
-  const res = await fetch(`http://localhost:4000/api/v1/reviews`, {
+import { IReviewAndRating } from "@/types/common";
+
+export const getAllReviews = async (): Promise<IReviewAndRating[]> => {
+  const res = await fetch(`${process.env.NEXT_SERVER_URL}/reviews`, {
     headers: {
       "Content-Type": "application/json",
     },
     next: {
-      //   revalidate: 24 * 60 * 60,
       tags: ["all-reviews"],
     },
   });

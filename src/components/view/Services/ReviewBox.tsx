@@ -1,14 +1,14 @@
 import React, { use, useState } from "react";
 import { Card, Input, Button, Rate, message } from "antd";
 import { createReview } from "@/services/review/create-review";
-import { IReview } from "@/types/common";
+import { IReview, IReviewAndRating } from "@/types/common";
 
 const { TextArea } = Input;
 
 const Review = ({ user, id }: any) => {
   const [review, setReview] = useState<string>("");
   const [rating, setRating] = useState<number>(0);
-  console.log(user,'This is user')
+
   const handleReviewChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setReview(e.target.value);
   };
@@ -19,7 +19,7 @@ const Review = ({ user, id }: any) => {
 
   const handleReviewSubmit = async () => {
     try {
-      const data: IReview = {
+      const data:any = {
         review,
         rating,
         userId: user.id,

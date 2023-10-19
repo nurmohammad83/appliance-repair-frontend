@@ -12,13 +12,17 @@ const TrendingService = ({services}:any) => {
   const swiperRef = useRef(null);
   console.log(swiperRef?.current)
   const goNext = () => {
+    // @ts-ignore
     if (swiperRef.current && swiperRef.current.swiper) {
+        // @ts-ignore
       swiperRef.current.swiper!.slideNext();
     }
   };
 
   const goPrev = () => {
+      // @ts-ignore
     if (swiperRef.current && swiperRef.current.swiper) {
+        // @ts-ignore
       swiperRef.current.swiper.slidePrev();
     }
   };

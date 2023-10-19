@@ -2,15 +2,11 @@ import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const hybridRoutes = ["/login", "/register"];
-const logedInUserAccessibleRoutes = [
-  "/dashboard",
-  "/my-profile",
-  "/my-bookings",
-];
+const hybridRoutes = ["/", "/login", "/register"];
+const logedInUserAccessibleRoutes = ["/my-profile", "/my-bookings"];
 const rolesRedirect: Record<string, unknown> = {
   user: "http://localhost:3000/my-profile",
-  admin: "http://localhost:3000/admin/dashboard",
+  admin: "http://localhost:3000/admin/my-profile",
   super_admin: "http://localhost:3000/super-admin/dashboard",
 };
 export async function middleware(request: NextRequest) {
@@ -43,6 +39,7 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     //hybrid routes
+    "/",
     "/login",
     "/register",
     //user routes

@@ -9,10 +9,6 @@ interface TableProps<T> {
 }
 
 const DashTable = ({ columns, data, session }: TableProps<[]>) =>{
-  console.log(data,'daa')
-  console.log(session,'user')
-  const filterBookingData = data.filter((booking:any)=>booking.user.email === session.email)
-  // console.log(filterBookingData,'filter')
   return  (
     <Table columns={columns} dataSource={data} />
   )

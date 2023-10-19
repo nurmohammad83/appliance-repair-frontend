@@ -1,13 +1,17 @@
 "use client";
 
-import { Col, Layout, Menu, Row, theme } from "antd";
+import { ICategory,  } from "@/types/common";
+import { Col, Layout, Menu, Row, } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { Content } from "antd/es/layout/layout";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
-const AllServices = ({data}:any) => {
+interface IProps {
+  data:ICategory[],
+}
+
+const AllServices = ({data}:IProps) => {
   return (
     <div className="px-6 sm:px-12 relative min-h-screen block md:px-24 font-poppins">
       <div className="text-secondary font-bold text-3xl font-poppins  py-10">
@@ -75,7 +79,6 @@ const AllServices = ({data}:any) => {
               </Col>
               )))
             }
-          
           </Row>
             </section>
           ))

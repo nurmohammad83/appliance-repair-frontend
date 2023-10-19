@@ -1,9 +1,12 @@
 "use server";
 
+import { IReviewAndRating } from "@/types/common";
 import { revalidateTag } from "next/cache";
 
-export const createReview = async (data: any) => {
-  const res = await fetch(`http://localhost:4000/api/v1/reviews`, {
+export const createReview = async (
+  data: IReviewAndRating
+): Promise<IReviewAndRating> => {
+  const res = await fetch(`${process.env.NEXT_SERVER_URL}/reviews`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -11,7 +14,7 @@ export const createReview = async (data: any) => {
     body: JSON.stringify(data),
     cache: "no-cache",
   });
-  const { data: reviews } = await res.json();
   revalidateTag("all-reviews");
+  const { data: reviews } = await res.json();
   return reviews;
 };
