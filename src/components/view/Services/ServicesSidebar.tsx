@@ -12,7 +12,7 @@ import { IReviewAndRating, IService, IUser } from "@/types/common";
 interface IProps {
   service:IService,
   reviews:IReviewAndRating[],
-  user:IUser
+  user:IUser[]
 }
 
 const ServiceSidebar = ({service,reviews,user}:IProps) => {

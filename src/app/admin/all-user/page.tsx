@@ -8,7 +8,8 @@ const AllUsers = async() => {
   return (
     <div className="px-10 py-5">
         <h2 className="text-xl font-poppins font-bold">All User</h2>
-        <DashTable columns={userColumns} data={allUser}/>
+        
+        <DashTable columns={userColumns} data={allUser as any}/>
         
     </div>
   )

@@ -86,7 +86,9 @@ const ServiceDetails = ({ service, slots, user , reviews, }:IProps) => {
                 link: `/all-services`,
               },
               {
+                // @ts-ignore
                 label: `${service.category.title}`,
+                // @ts-ignore
                 link: `/all-services/#${service.category.title}`,
               },
             ]}
@@ -193,7 +195,7 @@ const ServiceDetails = ({ service, slots, user , reviews, }:IProps) => {
       </div>
 
       <div className="px-5 sm:px-14 mt-12">
-        <ServiceSidebar reviews={reviews} user={user} service={service} />
+        <ServiceSidebar reviews={reviews} user={user as any} service={service} />
       </div>
     </div>
   );

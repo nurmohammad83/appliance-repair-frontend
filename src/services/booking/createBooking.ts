@@ -6,7 +6,6 @@ import { getServerSession } from "next-auth";
 import { revalidateTag } from "next/cache";
 
 export const createBooking = async (data: IBooking): Promise<IBooking> => {
-  console.log(data, "book data");
   const session = await getServerSession(authOptions);
   const res = await fetch(`${process.env.NEXT_SERVER_URL}/bookings`, {
     method: "POST",

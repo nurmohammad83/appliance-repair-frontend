@@ -1,4 +1,3 @@
-import { FaArrowDown } from "react-icons/fa";
 import Image from "next/image";
 
 const ChooseUs = () => {

@@ -22,6 +22,5 @@ export const createReview = async (
   });
   revalidateTag("all-reviews");
   const { data: reviews } = await res.json();
-  console.log(reviews);
   return reviews;
 };
