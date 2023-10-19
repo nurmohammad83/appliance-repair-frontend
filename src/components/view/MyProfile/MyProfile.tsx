@@ -25,10 +25,10 @@ const MyProfile = ({ session }: any) => {
   };
 
   const defaultValues = {
-    fullName: session.fullName || "",
-    email: session.email || "",
-    contactNo: session.contactNo || "",
-    gender: session.gender || "",
+    fullName: session?.fullName || "",
+    email: session?.email || "",
+    contactNo: session?.contactNo || "",
+    gender: session?.gender || "",
   };
 
   return (
@@ -43,19 +43,19 @@ const MyProfile = ({ session }: any) => {
           <div className="flex font-roboto flex-col mt-6 justify-center items-start gap-5">
             <div className="text-base font-bold">
               <span>Name:</span>{" "}
-              <span className="text-sm text-primary">{session.fullName}</span>
+              <span className="text-sm text-primary">{session?.fullName}</span>
             </div>
             <div className="text-base font-bold">
               <span>Email:</span>{" "}
-              <span className="text-sm">{session.email}</span>
+              <span className="text-sm">{session?.email}</span>
             </div>
             <div className="text-base font-bold">
               <span>Phone:</span>{" "}
-              <span className="text-sm">{session.contactNo}</span>
+              <span className="text-sm">{session?.contactNo}</span>
             </div>
             <div className="text-base font-bold">
               <span>Gender:</span>{" "}
-              <span className="text-sm">{session.gender ? session.gender : "N/A"}</span>
+              <span className="text-sm">{session?.gender ? session?.gender : "N/A"}</span>
             </div>
           </div>
           <div className="flex justify-end">
@@ -66,7 +66,7 @@ const MyProfile = ({ session }: any) => {
         </div>
       </Card>
       <Modal
-        title="Edit Guest Information"
+        title="Edit User Information"
         open={handleModalOpen}
         onOk={() => setHandleModalOpen(false)}
         onCancel={() => setHandleModalOpen(false)}

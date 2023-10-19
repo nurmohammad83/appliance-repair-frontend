@@ -1,20 +1,24 @@
 "use client";
-import { deleteBooking } from "@/services/booking/delete-booking";
 import { Button, message } from "antd";
+import {
+  DeleteOutlined,
+} from "@ant-design/icons";
+import { deleteBooking } from "@/services/booking/delete-booking";
 
-const handelPay =async(id:string)=>{
-  message.loading('Paying...')
+
+
+const deleteHandler = async(id:string)=>{
+  message.loading('Deleting...')
   try {
     const result =await deleteBooking(id)
     // @ts-ignore
     if (result?.ok && !result.error) {
-      message.success("Thanks you, Payment successfully");
+      message.success("Booking Delete successfully");
     }
   } catch (error) {
     message.error("Please try again");
   }
 }
-
 
 export const columns = [
   {
@@ -50,11 +54,11 @@ export const columns = [
       return (
         <>
           <Button
-            onClick={() => handelPay(data?.id)}
+            onClick={() => deleteHandler(data?.id)}
             type="primary"
-            className="bg-primary"
+            danger
           >
-            PAY
+            <DeleteOutlined />
           </Button>
         </>
       );

@@ -1,6 +1,8 @@
 import DashTable from "@/components/ui/DashTable/DashTable"
 import { getAllUser } from "@/services/users/get-all-user"
 import { userColumns } from "./user.column"
+import { authOptions } from "@/app/lib/AuthOptions"
+import { getServerSession } from "next-auth"
 
 const AllUsers = async() => {
     const allUser = await getAllUser()

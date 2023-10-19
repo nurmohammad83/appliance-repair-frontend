@@ -1,9 +1,14 @@
-## Live Link: https://appliance-repair-frontend.vercel.app
 ## Server Link: https://appliance-repair-backend.vercel.app/api/v1/
 
 # Appliance Repair Service Website
 
 Welcome to the Appliance Repair Service Website! This web application provides a platform for appliance repair services with different user roles: `super_admin`, `admin`, and `user`. Our website is built using modern technologies and aims to simplify the process of managing appliance repair services and scheduling appointments.
+
+
+Super Admin Credential
+    email:superadmin@gmail.com
+    password:123456
+
 
 Admin Credential
     admin email: admin1@gmail.com

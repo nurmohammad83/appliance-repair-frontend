@@ -8,7 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
 const { Header } = Layout;
 
-const AdminHeader =  ({session}:{session:boolean}) => {
+const SuperAdminHeader =  ({session}:{session:boolean}) => {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -27,17 +27,17 @@ const AdminHeader =  ({session}:{session:boolean}) => {
     {
       key: "1",
       label: "My Profile",
-      href: "/admin/my-profile",
+      href: "/super-admin/my-profile",
     },
     {
       key: "2",
       label: "All User",
-      href: "/admin/all-user",
+      href: "/super-admin/all-user",
     },
     {
       key: "3",
-      label: "Booked Service",
-      href: "/admin/all-booked-service",
+      label: "Booked User",
+      href: "/super-admin/all-booked-service",
     },
   ];
  
@@ -116,4 +116,4 @@ const AdminHeader =  ({session}:{session:boolean}) => {
   </Header>
   );
 };
-export default AdminHeader;
+export default SuperAdminHeader;

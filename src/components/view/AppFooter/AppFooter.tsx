@@ -16,10 +16,10 @@ const AppFooter = () => {
 				<h3 className="tracking-tighter uppercase text-black">Product</h3>
 				<ul className="space-y-1 underline-none text-secondary list-none">
 					<li className="list-none">
-						<Link className="text-secondary no-underline" href="#">Features</Link>
+						<Link className="text-secondary no-underline" href="/all-services/#Oven Services">Oven Services</Link>
 					</li>
 					<li>
-						<Link className="text-secondary no-underline" href="#">Integrations</Link>
+						<Link className="text-secondary no-underline" href="/all-services">Water Purifier Services</Link>
 					</li>
 					<li>
 						<Link className="text-secondary no-underline" href="#">Pricing</Link>
