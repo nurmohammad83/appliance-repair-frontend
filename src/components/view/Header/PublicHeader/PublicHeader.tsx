@@ -32,30 +32,11 @@ const PublicHeader =  ({session}:{session:boolean}) => {
     },
     {
       key: "2",
-      label: "Services",
+      label: "All Service",
       href: "/all-services",
     },
-    {
-      key: "3",
-      label: "About",
-      href: "/about-us",
-    },
-  ];
-  const logInItem = [
-    {
-      key: "1",
-      label: "Home",
-      href: "/",
-    },
-    {
-      key: "2",
-      label: "Services",
-      href: "/all-services",
-    },
-
   ];
 
-  const totalEndpoint = session ? logInItem : publicItems
   const items: MenuProps["items"] = [
     {
       key: "1",
@@ -84,12 +65,12 @@ const PublicHeader =  ({session}:{session:boolean}) => {
       theme="dark"
       mode="horizontal"
     >
-      {totalEndpoint?.map((item) => (
+      {publicItems?.map((item) => (
         <Menu.Item
-          className="bg-none  text-black font-medium leading-6 p-0 mx-4"
+          className="bg-none  text-black bg-transparent font-medium leading-6 mx-3"
           key={item.href}
         >
-          <Link className="m-0 p-0 bg-none  listing" href={item.href}>
+          <Link className=" bg-none bg-transparent bg-opacity-0  listing" href={item.href}>
             {item.label}
           </Link>
         </Menu.Item>
@@ -122,7 +103,7 @@ const PublicHeader =  ({session}:{session:boolean}) => {
 
     <div className=" block md:hidden">
       <Button
-        className=" block md:hidden"
+        className=" block bg-primary md:hidden"
         type="primary"
         onClick={showDrawer}
       >
@@ -135,7 +116,7 @@ const PublicHeader =  ({session}:{session:boolean}) => {
           selectedKeys={[pathname]}
           style={{ borderRight: 0 }}
         >
-          {totalEndpoint?.map((item) => (
+          {publicItems?.map((item) => (
             <Menu.Item key={item.href}>
               <Link href={item.href}>{item.label}</Link>
             </Menu.Item>

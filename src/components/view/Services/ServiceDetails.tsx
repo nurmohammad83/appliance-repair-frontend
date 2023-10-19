@@ -17,19 +17,25 @@ const { confirm } = Modal;
 
 interface IProps {
   service:IService,
-  user:IUser,
+  user:IUser[] | null,
   slots:ISlot[]
   reviews:IReviewAndRating[]
 }
 
 
 const ServiceDetails = ({ service, slots, user , reviews, }:IProps) => {
+
+  const userId = user ? user[0].id : null
   const [handleModalOpen, setHandleModalOpen] = useState<boolean>(false);
   
   const [selectedValue, setSelectedValue] = useState(() => dayjs("2023-10-18"));
   const [slot, setSlot] = useState(null);
 
   const handleCreateBooking = async (id: string) => {
+    if(!userId){
+      setHandleModalOpen(false)
+     return message.error("Please login")
+    }
     confirm({
       title: (
         <div>
@@ -48,7 +54,7 @@ const ServiceDetails = ({ service, slots, user , reviews, }:IProps) => {
         message.loading('Booking...')
         try {
           const data:any = {
-            userId: user?.id,
+            userId,
             serviceId: id,
             slotId: slot,
             date: selectedValue.format("YYYY-MM-DD"),

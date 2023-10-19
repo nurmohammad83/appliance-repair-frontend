@@ -53,10 +53,10 @@ const AdminHeader =  ({session}:{session:boolean}) => {
     >
       {items?.map((item) => (
         <Menu.Item
-          className="bg-none  text-black font-medium leading-6 p-0 mx-4"
+          className="bg-none  text-black bg-transparent font-medium leading-6 mx-4"
           key={item.href}
         >
-          <Link className="m-0 p-0 bg-none  listing" href={item.href}>
+          <Link className=" bg-none bg-transparent bg-opacity-0  listing" href={item.href}>
             {item.label}
           </Link>
         </Menu.Item>

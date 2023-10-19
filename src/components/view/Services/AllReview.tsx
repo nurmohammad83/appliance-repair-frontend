@@ -8,10 +8,10 @@ const AllReview = ({id, serviceReview }: {id:string,serviceReview:IReviewAndRati
 
   return (
     <div>
-        <div className="py-7">
+        <div className="py-5">
             {
                 singelReview.map((review:any)=>(
-                   <div className="flex gap-5" key={review.id}>
+                   <div className="flex py-2 gap-5" key={review.id}>
                         <div className="w-[50px] h-[50px]">
                             <Image src={reviewer} width={50} height={50} alt="review" className="w-[50px] h-[50px]"/>
                         </div>

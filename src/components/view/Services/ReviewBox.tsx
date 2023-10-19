@@ -6,7 +6,7 @@ import { IUser } from "@/types/common";
 const { TextArea } = Input;
 
 interface IProps {
-  user:IUser,
+  user:IUser[] | null,
   id:string
 }
 
@@ -17,6 +17,7 @@ const Review = ({ user, id }: IProps) => {
     setReview(e.target.value);
   };
 
+   const userId =user ? user[0].id : null;
   const handleRatingChange = (value: number) => {
     setRating(value);
   };
@@ -27,7 +28,7 @@ const Review = ({ user, id }: IProps) => {
       const data:any = {
         review,
         rating,
-        userId: user.id,
+        userId,
         serviceId: id,
       };
 
