@@ -16,7 +16,7 @@ interface IProps {
 }
 
 const ServiceSidebar = ({service,reviews,user}:IProps) => {
-  const serviceReview = reviews.filter((review:IReviewAndRating)=>review.serviceId === service.id)
+  
 
   const items = [
     {
@@ -130,7 +130,7 @@ const ServiceSidebar = ({service,reviews,user}:IProps) => {
           </section>
           <section id="reviews">
           <h2 className="text-2xl font-bold font-poppins py-5"> Reviews & Rating of {service.name}</h2>
-          <AllReview serviceReview={serviceReview}/>
+          <AllReview id={service.id} serviceReview={reviews}/>
           <ReviewBox user={user} id={service.id}/>
           </section>
         </Content>

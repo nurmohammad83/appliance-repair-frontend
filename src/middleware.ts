@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 const hybridRoutes = ["/", "/login", "/register"];
-const logedInUserAccessibleRoutes = ["/my-profile", "/my-bookings"];
+const logedInUserAccessibleRoutes = ["/", "/my-profile", "/my-bookings"];
 const rolesRedirect: Record<string, unknown> = {
   user: "http://localhost:3000/my-profile",
   admin: "http://localhost:3000/admin/my-profile",

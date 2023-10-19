@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { Drawer, Button, Menu, Layout, Space, Dropdown, Avatar, MenuProps } from "antd";
 import { MenuOutlined,UserOutlined } from "@ant-design/icons";
 import Link from "next/link";
@@ -63,7 +63,7 @@ const PublicHeader =  ({session}:{session:boolean}) => {
     },
     {
       key: "2",
-      label: <Link href="/my-bookings">Dashboard</Link>,
+      label: <Link href="/my-bookings">My Booking</Link>,
     },
     {
       key: "3",

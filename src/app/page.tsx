@@ -9,6 +9,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "./lib/AuthOptions";
 import { getAllCategories } from "@/services/category/get-all-category";
 import { getAllServices } from "@/services/our-service/get-all-services";
+
 const Home =async () => {
   const session = await getServerSession(authOptions);
   const data = await getAllCategories()
@@ -18,7 +19,7 @@ const Home =async () => {
       <PublicHeader session={session ? true : false}/>
       <div className="min-h-[calc(100vh-64px)]">
       <Hero data={data}/>
-      <Services categorires={data}/>
+      <Services data={data}/>
       <TrendingService services={services}/>
       <ChooseUs />
       <Work />

@@ -1,13 +1,16 @@
+import { ICategory, IService } from "@/types/common"
 import { Col, Row } from "antd"
 import { Content } from "antd/es/layout/layout"
 import Image from "next/image"
 import Link from "next/link"
-
-const CategoryService = ({data}:any) => {
+interface IProps {
+  data:ICategory[],
+}
+const CategoryService = ({data}:IProps) => {
   return (
     <div><Content style={{ overflow: 'auto' }} className="bg-white px-4">
     {
-      data.map((item:any)=>(
+      data.map((item:ICategory)=>(
         <section id={item.title} className="mt-10" key={item.id}>
           <h2 className="text-xl sm:text-2xl font-bold font-roboto">{item.title}</h2>
           <hr className="h-1 bg-primary" />
@@ -18,7 +21,7 @@ const CategoryService = ({data}:any) => {
         gutter={[24, 24]}
       >
         {
-          item?.services?.map(((service:any)=>(
+          item?.services?.map(((service:IService)=>(
             <Col className="h-[230px]" key={service?.id} xs={24} sm={24} md={12} lg={12} xl={8}>
            <Link className="group rounded-md" href={`/all-services/${service.id}`}>
              <div className="w-full h-[200px]">

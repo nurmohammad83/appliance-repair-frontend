@@ -12,7 +12,7 @@ const ChooseUs = () => {
     Because we care about your safety..
     </h1>
 
-    <div className="lg:flex justify-center  gap-8 items-center h-full">
+    <div className="lg:flex justify-center py-8 gap-8 items-center h-full">
      
       <div className="w-full lg:w-2/5 flex justify-center items-center h-full">
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -79,12 +79,12 @@ Masks
       </div>
       <div className="w-full mt-8 lg:mt-0 lg:w-3/5 h-auto">
         <Image
-          src="https://s3.ap-south-1.amazonaws.com/cdn-marketplacexyz/sheba_xyz/images/webp/why-choose-us.webp"
+          src="https://res.cloudinary.com/dyy4n4fmh/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1697715568/Image-11_n2nt55.jpg"
           alt=""
           layout="responsive"
           width={600}
           height={500}
-          className=""
+          className=" h-[300px]"
         />
       </div>
     </div>

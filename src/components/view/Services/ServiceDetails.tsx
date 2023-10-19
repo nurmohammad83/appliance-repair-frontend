@@ -45,11 +45,9 @@ const ServiceDetails = ({ service, slots, user , reviews, }:IProps) => {
       ),
       okType: "primary",
       async onOk() {
-        if(user){
-          return message.info('Please login')
-        }
+        message.loading('Booking...')
         try {
-          const data:IBooking = {
+          const data:any = {
             userId: user?.id,
             serviceId: id,
             slotId: slot,

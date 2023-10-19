@@ -19,5 +19,6 @@ export const createBooking = async (data: IBooking): Promise<IBooking> => {
   });
   revalidateTag("all-bookings");
   const { data: booking } = await res.json();
+  console.log(booking, "bookings");
   return booking;
 };

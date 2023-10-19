@@ -1,14 +1,13 @@
-
 "use client";
 import { Typography } from "antd";
 import AutocompleteInput from "../../ui/SearchBar";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
+import { ICategory } from "@/types/common";
 
 const { Title, Paragraph } = Typography;
 
-const Hero = ({data}:any) => {
+const Hero = ({data}:{data:ICategory[]}) => {
   const router = useRouter()
   const handleSelect = ( link: string) => {
     router.push(`/all-services/#${link}`)
@@ -19,10 +18,10 @@ const Hero = ({data}:any) => {
         className="relative bg-cover bg-center h-[500px]"
         style={{
           backgroundImage:
-            'url("https://s3.ap-south-1.amazonaws.com/cdn-marketplacexyz/sheba_xyz/images/webp/home-banner.webp")',
+            'url("https://res.cloudinary.com/dyy4n4fmh/image/upload/v1697715400/img-inner_zpung2.jpg")',
         }}
       >
-        <div className="bg-black bg-opacity-50 h-full w-full flex items-center">
+        <div className="h-full w-full flex items-center">
           <div className="text-white font-poppins text-center mx-auto">
             <Title className="text-white text-6xl font-poppins font-bold">
               Appliance Repair Services

@@ -1,14 +1,18 @@
 import React, { use, useState } from "react";
 import { Card, Input, Button, Rate, message } from "antd";
 import { createReview } from "@/services/review/create-review";
-import { IReview, IReviewAndRating } from "@/types/common";
+import { IUser } from "@/types/common";
 
 const { TextArea } = Input;
 
-const Review = ({ user, id }: any) => {
+interface IProps {
+  user:IUser,
+  id:string
+}
+
+const Review = ({ user, id }: IProps) => {
   const [review, setReview] = useState<string>("");
   const [rating, setRating] = useState<number>(0);
-
   const handleReviewChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setReview(e.target.value);
   };
@@ -18,6 +22,7 @@ const Review = ({ user, id }: any) => {
   };
 
   const handleReviewSubmit = async () => {
+    message.loading('Submitting...')
     try {
       const data:any = {
         review,
@@ -25,7 +30,7 @@ const Review = ({ user, id }: any) => {
         userId: user.id,
         serviceId: id,
       };
-      console.log(data);
+
       const result = await createReview(data);
       if (result) {
         message.success("Thanks for you review.");
@@ -52,10 +57,8 @@ const Review = ({ user, id }: any) => {
         placeholder="Write your review here..."
       />
       <Button
-        disabled={!user}
-        className={`${
-          user ? "block" : "hidden"
-        } my-5 bg-primary border-primary text-white font-roboto`}
+        disabled={user ? false : true}
+        className={`${user ? 'block' : 'hidden'} my-5 bg-primary border-primary text-white font-roboto`}
         type="primary"
         onClick={handleReviewSubmit}
       >

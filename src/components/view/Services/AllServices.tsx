@@ -1,6 +1,6 @@
 "use client";
 
-import { ICategory,  } from "@/types/common";
+import { ICategory, IService,  } from "@/types/common";
 import { Col, Layout, Menu, Row, } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { Content } from "antd/es/layout/layout";
@@ -34,7 +34,7 @@ const AllServices = ({data}:IProps) => {
             defaultSelectedKeys={[`${data[0].id}`]}
             mode="inline"
             >
-              {data?.map((item:any) => (
+              {data?.map((item:ICategory) => (
             <Menu.Item className="rounded-none" key={item.id}>
               <Link className="hover:font-bold font-poppins hover:text-primary" href={`/all-services/#${item.title}`}>{item.title}</Link>
             </Menu.Item>
@@ -48,7 +48,7 @@ const AllServices = ({data}:IProps) => {
             bottom: 0,
           }} className="bg-white px-4">
         {
-          data.map((item:any)=>(
+          data.map((item:ICategory)=>(
             <section id={item.title} key={item.id}>
               <h2 className="text-xl sm:text-2xl font-bold font-roboto">{item.title}</h2>
               <hr className="h-1 bg-primary" />
@@ -59,7 +59,7 @@ const AllServices = ({data}:IProps) => {
             gutter={[24, 24]}
           >
             {
-              item?.services?.map(((service:any)=>(
+              item?.services?.map(((service:IService)=>(
                 <Col className="h-[230px]" key={service?.id} xs={24} sm={24} md={12} lg={12} xl={8}>
                <Link className="group rounded-md" href={`/all-services/${service.id}`}>
                  <div className="w-full h-[200px]">

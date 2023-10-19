@@ -8,8 +8,8 @@ interface Props {
 }
 const AdminEdit =async (props:Props) => {
   const {id}=props.params
-
   const data = await getSingleUser(String(id))
+ 
   return (
     <div>
       <AdminUserEdit data={data}/>

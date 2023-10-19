@@ -25,13 +25,6 @@ export type ILogin = {
   password: string;
 };
 
-export type IReview = {
-  review: string;
-  rating: number;
-  userId: string;
-  serviceId: string;
-};
-
 export type IUser = {
   id: string;
   email: string;
@@ -65,7 +58,9 @@ export type IReviewAndRating = {
   review: string;
   rating: number;
   userId: string;
+  user: IUser[];
   serviceId: string;
+  service: IService[];
   createdAt: string;
   updatedAt: string;
 };
