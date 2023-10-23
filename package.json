@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.17.2",
+    "@ant-design/cssinjs": "^1.17.0",
     "@hookform/resolvers": "^3.3.2",
     "@reduxjs/toolkit": "^1.9.7",
     "@types/jsonwebtoken": "^9.0.3",
-    "antd": "^5.10.0",
+    "antd": "^5.9.4",
     "jsonwebtoken": "^9.0.2",
     "moment": "^2.29.4",
     "next": "13.5.4",

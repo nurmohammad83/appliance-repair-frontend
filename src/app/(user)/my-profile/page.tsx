@@ -1,6 +1,5 @@
 import { authOptions } from "@/app/lib/AuthOptions";
 import MyProfile from "@/components/view/MyProfile/MyProfile"
-import { IUser } from "@/types/common";
 import { getServerSession } from "next-auth";
 
 const MyProfilePage =async ()=> {

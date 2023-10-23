@@ -57,7 +57,9 @@ const ServiceSidebar = ({service,reviews,user}:IProps) => {
             </Menu>
         </Sider>
         <Content className="px-5 bg-white">
-          <section id="details">
+          <section style={{
+        scrollMarginTop: '100px',
+      }} id="details">
             <h2 className="text-2xl font-bold font-poppins py-5"> Details of {service.name}</h2>
             {
               service.description.map((des:any)=>(
@@ -128,7 +130,9 @@ const ServiceSidebar = ({service,reviews,user}:IProps) => {
           </div>
         </div>
           </section>
-          <section id="reviews">
+          <section style={{
+        scrollMarginTop: '100px',
+      }} id="reviews">
           <h2 className="text-2xl font-bold font-poppins py-5"> Reviews & Rating of {service.name}</h2>
           <AllReview id={service.id} serviceReview={reviews}/>
           <ReviewBox user={user} id={service.id}/>

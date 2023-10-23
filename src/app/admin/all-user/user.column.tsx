@@ -56,7 +56,7 @@ export const userColumns = [
               style={{
                 margin: "0px 5px",
               }}
-              onClick={() => console.log(data)}
+    
               type="primary"
             >
               <EditOutlined />

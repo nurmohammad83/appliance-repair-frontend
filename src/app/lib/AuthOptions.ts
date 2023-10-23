@@ -31,7 +31,6 @@ export const authOptions: AuthOptions = {
             data?.accessToken,
             process.env.JWT_SECRET!
           );
-
           if (res.ok && data) {
             return {
               ...data,
@@ -39,7 +38,6 @@ export const authOptions: AuthOptions = {
             };
           }
         } catch (error: any) {
-          console.log(error);
           throw new Error(error.message);
         }
       },

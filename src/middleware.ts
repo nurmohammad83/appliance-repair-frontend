@@ -5,9 +5,10 @@ import type { NextRequest } from "next/server";
 const hybridRoutes = ["/", "/login", "/register"];
 const logedInUserAccessibleRoutes = ["/", "/my-profile", "/my-bookings"];
 const rolesRedirect: Record<string, unknown> = {
-  user: "http://localhost:3000/my-profile",
-  admin: "http://localhost:3000/admin/my-profile",
-  super_admin: "http://localhost:3000/super-admin/my-profile",
+  user: "https://appliance-repair-frontend.vercel.app/my-profile",
+  admin: "https://appliance-repair-frontend.vercel.app/admin/my-profile",
+  super_admin:
+    "https://appliance-repair-frontend.vercel.app/super-admin/my-profile",
 };
 
 export async function middleware(request: NextRequest) {
@@ -17,7 +18,9 @@ export async function middleware(request: NextRequest) {
     if (hybridRoutes.includes(pathname)) {
       return NextResponse.next();
     }
-    return NextResponse.redirect("http://localhost:3000/login");
+    return NextResponse.redirect(
+      "https://appliance-repair-frontend.vercel.app/login"
+    );
   }
 
   const role = token?.role as string;
@@ -33,7 +36,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(rolesRedirect[role] as string);
   }
 
-  return NextResponse.redirect("http://localhost:3000");
+  return NextResponse.redirect("https://appliance-repair-frontend.vercel.app/");
 }
 
 // See "Matching Paths" below to learn more

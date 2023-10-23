@@ -1,10 +1,8 @@
 import { authOptions } from "@/app/lib/AuthOptions";
 import ServiceDetails from "@/components/view/Services/ServiceDetails";
-
 import { getAllReviews } from "@/services/review/get-all-reviews";
 import { getAllSlots } from "@/services/slots/getAllSlots";
-import { getSingleUser } from "@/services/users/getSingleUser";
-import { IService, IUser } from "@/types/common";
+import { IService } from "@/types/common";
 import { getServerSession } from "next-auth";
 
 const SingleService = async ({

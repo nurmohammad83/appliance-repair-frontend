@@ -49,7 +49,9 @@ const AllServices = ({data}:IProps) => {
           }} className="bg-white px-4">
         {
           data.map((item:ICategory)=>(
-            <section id={item.title} key={item.id}>
+            <section style={{
+              scrollMarginTop: '100px',
+            }} id={item.title} key={item.id}>
               <h2 className="text-xl sm:text-2xl font-bold font-roboto">{item.title}</h2>
               <hr className="h-1 bg-primary" />
                <Row

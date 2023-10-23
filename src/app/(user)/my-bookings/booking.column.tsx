@@ -40,6 +40,14 @@ export const columns = [
     key: "date",
   },
   {
+    title: "Slot Time",
+    render:function(data:Record<string,string>){
+      //@ts-ignore
+      return <>{data.slots?.slotTime}</>
+    },
+    key: "slotTime",
+  },
+  {
     title: "Status",
     dataIndex: "status",
     key: "status",

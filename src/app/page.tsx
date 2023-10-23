@@ -6,9 +6,10 @@ import TrendingService from "@/components/view/Public/TrendingService";
 import Work from "@/components/view/Public/Work";
 import Testimonial from "@/components/view/Public/Testimonial";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./lib/AuthOptions";
+
 import { getAllCategories } from "@/services/category/get-all-category";
 import { getAllServices } from "@/services/our-service/get-all-services";
+import { authOptions } from "@/app/lib/AuthOptions";
 
 const Home =async () => {
   const session = await getServerSession(authOptions);

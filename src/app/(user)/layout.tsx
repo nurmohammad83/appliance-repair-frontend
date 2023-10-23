@@ -1,6 +1,6 @@
 import PublicHeader from "@/components/view/Header/PublicHeader/PublicHeader";
 import { ReactNode } from "react";
-import { authOptions } from "../lib/AuthOptions";
+import { authOptions } from "@/app/lib/AuthOptions"
 import { getServerSession } from "next-auth";
 import Sidebar from "@/components/ui/Sidebar/Sidebar";
 

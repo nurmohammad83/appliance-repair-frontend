@@ -1,11 +1,11 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import Providers from './lib/Providers'
 import AppFooter from '@/components/view/AppFooter/AppFooter'
+import Providers from '@/app/lib/Providers'
 
 export const metadata: Metadata = {
   title: 'ProTechFixers',
-  description: 'Created by Nur',
+  description: 'Created by Nur Mohammad',
 }
 
 export default function RootLayout({
