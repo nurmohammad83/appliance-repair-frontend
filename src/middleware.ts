@@ -1,14 +1,15 @@
 import { getToken } from "next-auth/jwt";
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 const hybridRoutes = ["/", "/login", "/register"];
 const logedInUserAccessibleRoutes = ["/", "/my-profile", "/my-bookings"];
 const rolesRedirect: Record<string, unknown> = {
-  user: "https://appliance-repair-frontend.vercel.app/my-profile",
-  admin: "https://appliance-repair-frontend.vercel.app/admin/my-profile",
+  user: "https://appliance-repair-frontend-main-rho.vercel.app/my-profile",
+  admin:
+    "https://appliance-repair-frontend-main-rho.vercel.app/admin/my-profile",
   super_admin:
-    "https://appliance-repair-frontend.vercel.app/super-admin/my-profile",
+    "https://appliance-repair-frontend-main-rho.vercel.app/super-admin/my-profile",
 };
 
 export async function middleware(request: NextRequest) {
@@ -19,7 +20,7 @@ export async function middleware(request: NextRequest) {
       return NextResponse.next();
     }
     return NextResponse.redirect(
-      "https://appliance-repair-frontend.vercel.app/login"
+      "https://appliance-repair-frontend-main-rho.vercel.app/login"
     );
   }
 
@@ -36,7 +37,9 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(rolesRedirect[role] as string);
   }
 
-  return NextResponse.redirect("https://appliance-repair-frontend.vercel.app/");
+  return NextResponse.redirect(
+    "https://appliance-repair-frontend-main-rho.vercel.app/"
+  );
 }
 
 // See "Matching Paths" below to learn more
