@@ -20,7 +20,7 @@ const Work = () => {
           layout="responsive"
           width={600}
           height={500}
-          className=""
+          className="rounded-md"
         />
       </div>
         <div className="w-full lg:w-1/2 py-5 flex justify-center items-center h-full">

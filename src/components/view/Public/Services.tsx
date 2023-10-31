@@ -44,7 +44,7 @@ const Services =async ({data}:{data:ICategory[]}) => {
                 layout="responsive"
                 height={250}
                 width={400}
-                className="w-full h-[250px]"
+                className="w-full rounded-md h-[250px]"
               />
              </div>
               <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">

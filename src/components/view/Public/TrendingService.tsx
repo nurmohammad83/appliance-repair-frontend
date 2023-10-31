@@ -85,7 +85,7 @@ const TrendingService = ({services}:any) => {
                 layout="responsive"
                 height={350}
                 width={300}
-                className="w-full h-full"
+                className="w-full rounded-md h-full"
               />
               <h3 className="text-center group-hover:text-primary text-secondary text-lg font-poppins pt-1">
               {service.name}sdffsadf

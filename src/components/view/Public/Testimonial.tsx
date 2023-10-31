@@ -39,7 +39,7 @@ const Testimonial = () => {
         {testimonial.map((test: any) => (
           <SwiperSlide key={test.title}>
             <div className="min-h-[300px] w-full">
-              <div className="min-h-[300px] bg-gray-100 p-8 rounded">
+              <div className="min-h-[300px] bg-gray-100 p-8 rounded-md">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
