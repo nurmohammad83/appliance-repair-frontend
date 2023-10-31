@@ -28,34 +28,33 @@ const TrendingService = ({services}:any) => {
     }
   };
   return (
-    <div className="px-10 sm:px-24 py-10 sm:pb-16">
+    <div className="px-10 font-roboto sm:px-24 py-10 sm:py-24">
       <div className="flex py-5 justify-between items-center">
-        <h1 className="text-xl font-medium sm:text-2xl sm:font-bold font-poppins text-secondary">
-          Trending Service
+      <h1 className="text-2xl font-medium sm:text-4xl sm:font-bold font-poppins text-secondary">
+          Trending Services
+        <hr className="sm:w-36 w-24   h-1 bg-primary mt-4" />
         </h1>
         <div className="flex gap-3 items-center mx-5">
             <Button
               className="swiper-button-prev flex items-center justify-center w-12 h-12 border border-primary shadow-lg shadow-gray-400 bg-primary text-white rounded-full"
               onClick={goPrev}
             >
-              <ArrowLeftOutlined className="text-white font-bold"/>
+              <ArrowLeftOutlined className="text-white text-lg font-bold"/>
             </Button>
             <Button
               className="swiper-button-next flex items-center justify-center w-12 h-12 border border-primary shadow-lg shadow-gray-400 bg-primary text-white rounded-full"
               onClick={goNext}
             >
                <ArrowRightOutlined className="text-white  text-lg font-bold" />
-             
             </Button>
           </div>
       </div>
         <Swiper
           ref={swiperRef}
-          slidesPerView={3}
           spaceBetween={30}
           breakpoints={{
             640: {
-              slidesPerView: 2,
+              slidesPerView: 1,
               spaceBetween: 20,
             },
             800: {

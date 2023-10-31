@@ -15,7 +15,7 @@ const Hero = ({data}:{data:ICategory[]}) => {
   return (
     <div>
       <div
-        className="relative bg-cover bg-center h-[500px]"
+        className="relative bg-cover font-roboto bg-center h-[600px]"
         style={{
           backgroundImage:
             'url("https://res.cloudinary.com/dyy4n4fmh/image/upload/v1697715400/img-inner_zpung2.jpg")',
@@ -23,10 +23,10 @@ const Hero = ({data}:{data:ICategory[]}) => {
       >
         <div className="h-full w-full flex items-center">
           <div className="text-white font-poppins text-center mx-auto">
-            <Title className="text-white text-6xl font-poppins font-bold">
+            <Title className="text-white text-3xl sm:text-6xl font-poppins font-bold">
               Appliance Repair Services
             </Title>
-            <Paragraph className="text-2xl font-semibold text-white/90">
+            <Paragraph className="text-xl sm:text-2xl font-semibold text-white/90">
               Fast, Reliable, and Professional Repairs
             </Paragraph>
             <div className="max-w-lg px-6 sm:px-0 mx-auto">
@@ -38,11 +38,11 @@ const Hero = ({data}:{data:ICategory[]}) => {
             </div>
           </div>
         </div>
-        <div className="sm:flex relative hidden  justify-center -8">
+        {/* <div className="sm:flex relative hidden  justify-center -8">
           <div className="absolute  -top-12">
           <Image src='/emi.png' width={850} height={96} className="w-full md:w-[850px] md:h-24 rounded-md" alt="oben" layout="responsive"/>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

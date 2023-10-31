@@ -6,16 +6,14 @@ import {
   Button,
   Menu,
   Layout,
-  Space,
-  Dropdown,
-  Avatar,
-  MenuProps,
 } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
+import logo from '@/assets/pro_logo.png';
+
 const { Header } = Layout;
 
 const SuperAdminHeader = ({ session }: { session: boolean }) => {
@@ -53,11 +51,11 @@ const SuperAdminHeader = ({ session }: { session: boolean }) => {
 
   return (
     <Header className="flex sticky opacity-100 top-0 z-50 justify-between shadow-lg items-center bg-white">
-      <div className="flex justify-center items-center">
-        <Link className="flex justify-center items-center" href="/">
-          <Image width={100} height={60} src="/protech.png" alt="logo" />
-        </Link>
-      </div>
+     <div className="flex justify-center items-center">
+      <Link className="flex justify-center items-center" href="/">
+        <Image width={100} height={50} src={logo} alt="logo"/>
+      </Link>
+    </div>
       <Menu
         className="md:flex bg-transparent bg-none justify-center items-center text-black hidden"
         disabledOverflow

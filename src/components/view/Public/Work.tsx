@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Work = () => {
   return (
-    <div className="bg-[#fafbfc] px-10 sm:px-24 py-10 ">
+    <div className="bg-[#fafbfc] px-10 font-roboto sm:px-24 py-10 sm:py-24">
       <div className="py-5 flex items-center gap-3">
         <hr className="w-10 h-[3px] bg-primary my-2" />{" "}
         <span className="text-sm">HOW IT WORKS</span>
