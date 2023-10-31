@@ -6,6 +6,7 @@ import { MenuOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
+import Image from "next/image";
 const { Header } = Layout;
 
 const AdminHeader =  ({session}:{session:boolean}) => {
@@ -45,9 +46,9 @@ const AdminHeader =  ({session}:{session:boolean}) => {
   return (
     <Header className="flex sticky opacity-100 top-0 z-50 justify-between shadow-lg items-center bg-white">
       
-    <div className="flex items-center">
-      <Link href="/">
-        <h3 className="font-roboto text-2xl text-primary">PROTECHFIXERS</h3>
+      <div className="flex justify-center items-center">
+      <Link className="flex justify-center items-center" href="/">
+        <Image width={100} height={60} src='/protech.png' alt="logo"/>
       </Link>
     </div>
     <Menu
