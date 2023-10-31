@@ -8,11 +8,13 @@ import Link from "next/link";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "@/schemas/loginSchema";
 import { loginUser } from "@/helpers/logInUser";
+import Image from "next/image";
+import logo from '@/assets/pro_logo.png';
+
 
 const LoginForm = () => {
   const router = useRouter();
   const onSubmit = async (values: {email:string,password:string}) => {
-    console.log(values)
     try {
       const result =await loginUser({
         email: values.email,
@@ -34,11 +36,13 @@ const LoginForm = () => {
     <div className="min-h-full">
       <div className="flex font-poppins justify-center my-24 items-center flex-col">
         <div className="text-center py-5 sm:py-10">
-          <span className="text-primary font-bold">PROTECHFIXER</span>
+        <div className="flex justify-center items-center">
+        <Image width={100} height={50} src={logo} alt="logo"/>
+    </div>
           <h2 className="text-xl font-roboto">Log In Your Account</h2>
         </div>
         <div className="w-96">
-          <div>
+          <div className=" mx-5 sm:mx-0 ">
             <Form submitHandler={onSubmit} resolver={yupResolver(loginSchema)}>
               <div>
                 <FormInput
