@@ -10,6 +10,8 @@ import { loginUser } from "@/helpers/logInUser";
 import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createUserSchema } from "@/schemas/userCreateSchema";
+import logo from "@/assets/pro_logo.png";
+import Image from "next/image";
 
 const RegisterForm = () => {
   const [submitError, setSubmitError] = useState();
@@ -35,20 +37,24 @@ const RegisterForm = () => {
         }
       }
     } catch (error) {
-      console.log(error);
       message.warning("Please try again");
     }
   };
   return (
-    <div>
-      <div className="flex font-poppins justify-center my-8 items-center flex-col">
-        <div className="text-center py-5 sm:py-12">
-          <span className="text-primary font-bold">PROTECHFIXER</span>
+    <div className="flex sm:min-h-screen font-poppins justify-center my-8 items-center">
+      <div className="w-96 shadow-sm shadow-black/25 rounded-md p-8">
+        <div className="text-center pb-5 sm:pb-10">
+          <div className="flex justify-center items-center">
+            <Image width={100} height={50} src={logo} alt="logo" />
+          </div>
           <h2 className="text-xl font-roboto">Create Your Account</h2>
         </div>
-        <div className="w-96">
+        <div>
           <div>
-            <Form submitHandler={onSubmit} resolver={yupResolver(createUserSchema)}>
+            <Form
+              submitHandler={onSubmit}
+              resolver={yupResolver(createUserSchema)}
+            >
               <div>
                 <FormInput
                   name="fullName"
@@ -98,7 +104,7 @@ const RegisterForm = () => {
             <p className="text-red-500 text-sm">{submitError}</p>
           </div>
         </div>
-        <div className="pt-3 ">
+        <div className="mt-5">
           <span className="text-sm font-roboto text-black">
             Already a member?
           </span>

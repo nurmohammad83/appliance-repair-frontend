@@ -15,7 +15,6 @@ const MyProfile = ({ session }: any) => {
     message.loading("Updating.....");
     try {
     const result =  await updateUser({id,values})
-    console.log(result)
      if(result){
       message.success("User Update successfully");
      }

@@ -9,9 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const TrendingService = ({services}:any) => {
-  console.log(services)
   const swiperRef = useRef(null);
-  console.log(swiperRef?.current)
   const goNext = () => {
     // @ts-ignore
     if (swiperRef.current && swiperRef.current.swiper) {

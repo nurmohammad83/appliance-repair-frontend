@@ -11,7 +11,7 @@ interface IProps {
 
 const Services =async ({data}:{data:ICategory[]}) => {
   return (
-    <div className="px-10 font-roboto sm:px-24 py-10 sm:py-24">
+    <div className="px-10 font-roboto mt-10 md:mt-24 sm:px-24 py-10 sm:py-24">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-medium sm:text-4xl sm:font-bold font-poppins text-secondary">
           Our Services

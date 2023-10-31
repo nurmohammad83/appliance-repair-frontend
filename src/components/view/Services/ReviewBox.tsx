@@ -39,8 +39,6 @@ const Review = ({ user, id }: IProps) => {
     } catch (error) {
       message.error("Something want to wrong!");
     }
-    console.log("Review submitted:", review);
-    console.log("Rating:", rating);
     setReview("");
     setRating(0);
   };

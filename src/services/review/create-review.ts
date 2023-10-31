@@ -8,7 +8,6 @@ import { authOptions } from "@/app/lib/AuthOptions";
 export const createReview = async (
   data: IReviewAndRating
 ): Promise<IReviewAndRating> => {
-  console.log(data);
   const session = await getServerSession(authOptions);
   const res = await fetch(`${process.env.NEXT_SERVER_URL}/reviews`, {
     method: "POST",

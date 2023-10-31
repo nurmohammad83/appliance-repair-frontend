@@ -15,7 +15,7 @@ const Hero = ({data}:{data:ICategory[]}) => {
   return (
     <div>
       <div
-        className="relative bg-cover font-roboto bg-center h-[600px]"
+        className="relative bg-cover font-roboto bg-center h-[500px]"
         style={{
           backgroundImage:
             'url("https://res.cloudinary.com/dyy4n4fmh/image/upload/v1697715400/img-inner_zpung2.jpg")',
@@ -38,11 +38,11 @@ const Hero = ({data}:{data:ICategory[]}) => {
             </div>
           </div>
         </div>
-        {/* <div className="sm:flex relative hidden  justify-center -8">
+        <div className="md:flex relative hidden  justify-center -8">
           <div className="absolute  -top-12">
-          <Image src='/emi.png' width={850} height={96} className="w-full md:w-[850px] md:h-24 rounded-md" alt="oben" layout="responsive"/>
+          <Image src='/emi.png' width={850} height={150} className="w-full md:w-[850px] md:h-28 rounded-md" alt="oben" layout="responsive"/>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
