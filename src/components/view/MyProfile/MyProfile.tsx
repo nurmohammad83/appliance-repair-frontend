@@ -87,7 +87,7 @@ const MyProfile = ({ session }: any) => {
               <FormInput size="middle" name="gender" label="Gender" />
             </Col>
           </Row>
-          <Button type="primary" htmlType="submit">
+          <Button className="bg-primary border-primary text-white font-semibold" type="primary" htmlType="submit">
             Update
           </Button>
         </Form>

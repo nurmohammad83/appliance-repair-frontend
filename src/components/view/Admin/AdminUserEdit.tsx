@@ -49,7 +49,7 @@ const AdminUserEdit = ({data}:{data:IUser}) => {
               <FormInput size="middle" name="gender" label="Gender" />
             </Col>
           </Row>
-          <Button type="primary" htmlType="submit">
+          <Button className="bg-primary border-primary" type="primary" htmlType="submit">
             Update
           </Button>
         </Form>
