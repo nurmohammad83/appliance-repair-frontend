@@ -13,7 +13,7 @@ const Testimonial = () => {
         <span className="text-sm">TESTIMONIAL</span>
       </div>
       <h1 className="font-medium mb-8 sm:text-4xl sm:font-bold font-poppins text-secondary  text-sm">
-        Easiest way to get a service
+      Real Happy Customers
       </h1>
       <Swiper
         spaceBetween={30}

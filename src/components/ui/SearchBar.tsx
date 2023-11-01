@@ -50,7 +50,7 @@ const SearchBar = ({
       onSearch={handleSearch}
     >
       <Input
-        className="bg-white border-none text-lg font-poppins placeholder:text-black rounded-lg"
+        className="bg-white text-lg font-poppins placeholder:text-black rounded-lg"
         placeholder={placeholder}
         suffix={
           <SearchOutlined className="bg-primary flex justify-center items-center rounded-lg text-white text-2xl font-bold font-poppins h-10 w-14" />

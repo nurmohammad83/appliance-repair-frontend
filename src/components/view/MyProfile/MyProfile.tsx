@@ -58,7 +58,7 @@ const MyProfile = ({ session }: any) => {
             </div>
           </div>
           <div className="flex justify-end">
-            <Button onClick={() => setHandleModalOpen(true)}>
+            <Button className="bg-primary border-primary text-white font-semibold" onClick={() => setHandleModalOpen(true)}>
               Update Profile
             </Button>
           </div>

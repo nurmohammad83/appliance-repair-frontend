@@ -26,7 +26,7 @@ const TrendingService = ({services}:any) => {
     }
   };
   return (
-    <div className="px-10 font-roboto sm:px-24 py-10 sm:py-24">
+    <div className="px-10 font-roboto sm:px-24 py-10 sm:py-20">
       <div className="flex py-5 justify-between items-center">
       <h1 className="text-2xl font-medium sm:text-4xl sm:font-bold font-poppins text-secondary">
           Trending Services

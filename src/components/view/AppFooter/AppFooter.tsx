@@ -5,6 +5,8 @@ import logo from '@/assets/pro_logo.png';
 import Image from "next/image";
 
 const AppFooter = () => {
+	const data = new Date()
+	const establish = data.getFullYear()
   return (
     <footer className="px-4 divide-y font-roboto bg-gray-100 text-secondary">
 	<div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
@@ -32,10 +34,10 @@ const AppFooter = () => {
 				<h3 className="tracking-tighter uppercase text-black">Company</h3>
 				<ul className="space-y-1 list-none">
 					<li>
-						<Link className="text-secondary no-underline" href="#">Privacy</Link>
+						<Link className="text-secondary no-underline" href="/">Privacy</Link>
 					</li>
 					<li>
-						<Link className="text-secondary no-underline" href="#">Terms of Service</Link>
+						<Link className="text-secondary no-underline" href="/">Terms of Service</Link>
 					</li>
 				</ul>
 			</div>
@@ -55,7 +57,7 @@ const AppFooter = () => {
 			</div>
 		</div>
 	</div>
-	<div className="py-6 text-sm text-center text-gray-400">© 2023 ProTechFixer. All rights reserved.</div>
+	<div className="py-6 text-sm text-center text-gray-400">© {establish} ProTechFixer. All rights reserved.</div>
 </footer>
   );
 };
