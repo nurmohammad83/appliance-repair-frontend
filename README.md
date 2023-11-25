@@ -51,7 +51,7 @@ To run this project on your local machine, follow these steps:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/nurmohammad83/appliance-repair-frontend
+   git clone https://github.com/programmer-nur/appliance-repair-frontend
    ```
 
 2. Install dependencies:

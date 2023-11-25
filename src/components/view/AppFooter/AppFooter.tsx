@@ -47,7 +47,7 @@ const AppFooter = () => {
 					<Link className="text-secondary text-3xl no-underline" href="https://web.facebook.com/nurmohammad54800" title="Facebook" >
 						<FacebookFilled size={50}/>
 					</Link>
-					<Link className="text-secondary text-3xl no-underline" href="https://www.linkedin.com/in/nur-mohammad-0a1137259/" title="Linkedine" >
+					<Link className="text-secondary text-3xl no-underline" href="https://www.linkedin.com/in/programmer-nur/" title="Linkedine" >
 						<LinkedinFilled />
 					</Link>
 					<Link className="text-secondary text-3xl no-underline" href="https://www.instagram.com/noor__5480/" title="Instagram" >
