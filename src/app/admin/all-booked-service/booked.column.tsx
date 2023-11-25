@@ -5,14 +5,12 @@ import {
 } from "@ant-design/icons";
 import { deleteBooking } from "@/services/booking/delete-booking";
 
-
-
 const deleteHandler = async(id:string)=>{
   message.loading('Deleting...')
   try {
     const result =await deleteBooking(id)
     // @ts-ignore
-    if (result?.ok && !result.error) {
+    if (result) {
       message.success("Booking Delete successfully");
     }
   } catch (error) {

@@ -12,7 +12,7 @@ const deleteHandler = async(id:string)=>{
   try {
     const result =await deleteBooking(id)
     // @ts-ignore
-    if (result?.ok && !result.error) {
+    if (result) {
       message.success("Booking Delete successfully");
     }
   } catch (error) {

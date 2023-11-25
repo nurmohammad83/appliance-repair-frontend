@@ -13,7 +13,7 @@ const deleteHandler = async(id:string)=>{
   try {
     const result =await deleteUser(id)
     // @ts-ignore
-    if (result?.ok && !result.error) {
+    if (result) {
       message.success("User Delete successfully");
     }
   } catch (error) {
