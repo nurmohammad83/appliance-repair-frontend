@@ -35,7 +35,7 @@ const Sidebar = ({children}:{children:ReactNode}) => {
             top: 0,
             bottom: 0,
           }}
-          className="bg-transparent bg-white"
+          className="bg-transparent md:block hidden bg-white"
         >
           <Menu
             className="bg-transparent h-full"

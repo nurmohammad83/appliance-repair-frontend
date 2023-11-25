@@ -45,7 +45,6 @@ const ServiceDetails = ({ service, slots, user , reviews, }:IProps) => {
           <ul>
             <li>Hanging Charge 5$(If applicable)</li>
             <li>Transportation Cost (if applicable)</li>
-            <li>Hanging Charge *$ (If applicable)</li>
           </ul>
         </div>
       ),
